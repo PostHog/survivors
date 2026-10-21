@@ -27,7 +27,6 @@ function composeSchema() {
   const kit = read(path.join(KIT, 'kit.json'));
   const schema = read(path.join(SHARED, 'theme.base.schema.json'));
   const game = read(path.join(KIT, 'game.schema.json'));
-  schema.$id = `https://games.local/kits/${kit.id}/theme.schema.json`;
   schema.title = `${kit.name} theme`;
   schema.properties.products.items.enum = kit.products;
   if (kit.products_min) schema.properties.products.minItems = kit.products_min;
