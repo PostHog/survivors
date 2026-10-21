@@ -139,7 +139,7 @@ Every hoggie starts from the same base. Passives, hoggie traits, merch, relics a
 | Cooldown | x1 | Lower is faster. Floor x0.3 |
 | Area | x1 | Weapon size |
 | Amount | +0 | Extra projectiles, orbs, flags... |
-| Pickup range | 48 px | Gems and coins inside this fly to you |
+| Pickup range | 48 px | Gems and coins inside this fly to you. Bonuses stack up to 120 px at most |
 | XP (growth) | x1 | |
 | Luck | x1 | Better drops and chests |
 | Gold | x1 | Coin value |
@@ -547,7 +547,7 @@ You hold up to **6 passives** (8 from wave 3). Most go to level 5. A maxed passi
 | Passive | Per level | Max | Evolves |
 |---|---|---|---|
 | **Hedgehog Sprint** | +10% move speed | 5 | Heatmaps |
-| **Autocapture** | +35% pickup range | 5 | Session Replay, Web Analytics |
+| **Autocapture** | +20% pickup range | 5 | Session Replay, Web Analytics |
 | **Snack Break** | +20 max HP (and heals the 20) | 5 | Data Warehouse |
 | **Hot Reload** | Weapons fire 8% faster (floor x0.45) | 5 | Feature Flags, Logs |
 | **Code Review** | Take 8% less damage (armour) | 5 | Surveys |
@@ -814,7 +814,7 @@ At the start of wave 2 a Self-Driving Mode powerup drops next to you, so you can
 
 | Pickup | What it does |
 |---|---|
-| **Gem** (XP) | Every kill drops one. Colour shows worth: blue (1), green (2+), pink (5+), big gold (20+). When more than 80 gems lie around, ones close together **merge** into one worth the lot |
+| **Gem** (XP) | Every kill drops one. Colour shows worth: blue (1), green (2+), pink (5+), big gold (20+). When more than 80 gems lie around, ones close together **merge** into one worth the lot. With 350 on the floor, a new drop takes in the gem farthest from you |
 | **Coin** | Gold. Worth 1 x (1 + 10% per heat) x your gold bonus. Coins inside your pickup range fly to you |
 | **Food** (snack) | Heals 20% of max HP (at least 25) |
 | **Vacuum magnet** | Every gem and coin on the map flies to you |

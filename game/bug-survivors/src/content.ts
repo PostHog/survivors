@@ -127,7 +127,7 @@ export interface PassiveDef { name: string; line: string; max: number; apply: (s
 
 export const PASSIVES: Record<PassiveId, PassiveDef> = {
   speed: { name: 'Hedgehog Sprint', line: '+10% move speed', max: 5, patch: true, apply: (s, l) => { s.speed *= 1 + 0.1 * Math.min(l, 8); } },
-  magnet: { name: 'Autocapture', line: '+35% gem pickup range', max: 5, patch: true, apply: (s, l) => { s.magnet *= 1 + 0.35 * l; } },
+  magnet: { name: 'Autocapture', line: '+20% gem pickup range', max: 5, patch: true, apply: (s, l) => { s.magnet *= 1 + 0.2 * Math.min(l, 6); } },
   maxhp: { name: 'Snack Break', line: '+20 max HP and heal 20', max: 5, patch: true, apply: (s, l) => { s.maxHp += 20 * l; } },
   cooldown: { name: 'Hot Reload', line: 'Weapons fire 8% faster', max: 5, patch: true, apply: (s, l) => { s.cd *= Math.max(0.45, 1 - 0.08 * l); } },
   armour: { name: 'Code Review', line: 'Take 8% less damage', max: 5, patch: true, apply: (s, l) => { s.armour += Math.min(0.56, 0.08 * l); } },

@@ -36,6 +36,8 @@ let WORLD_W = 1280;
 let WORLD_H = 800;
 const MAX_ENEMIES = 320;
 const MAX_GEMS = 350;
+/** Pickup range never passes this (px), so stacked range bonuses don't cover the whole screen. */
+const MAX_MAGNET = 120;
 const MAX_ITEMS = 44;
 const HEAL_AMOUNT = 25;
 /** A snack heals this share of max HP (at least HEAL_AMOUNT), so snacks stay worth grabbing as max HP grows. */
@@ -494,6 +496,7 @@ export class GameScene extends Phaser.Scene {
     if (this.yolo) s.might *= YOLO.dmg;
     if (this.weapons.get('session_replay')?.evo) s.magnet *= 1.6;
     if (this.pu?.shipit > 0) s.cd *= 0.5; // Ship It: every weapon fires twice as fast
+    s.magnet = Math.min(MAX_MAGNET, s.magnet);
     s.crit = Math.min(0.85, s.crit);
     s.armour = Math.min(0.7, s.armour);
     s.cd = Math.max(0.3, s.cd);
@@ -2124,8 +2127,17 @@ export class GameScene extends Phaser.Scene {
   // ---------------------------------------------------------------- gems, items, xp
   private dropGem(x: number, y: number, v: number) {
     if (this.gems.length >= MAX_GEMS) {
-      this.gems[Math.floor(Math.random() * this.gems.length)].v += v;
-      return;
+      // Full floor: the gem farthest from the hog folds into this one, so drops keep showing up where the fight is.
+      const px = this.player.x, py = this.player.y;
+      let far = -1, farD = -1;
+      this.gems.forEach((g, i) => {
+        const d = (g.s.x - px) ** 2 + (g.s.y - py) ** 2;
+        if (!g.pull && d > farD) { far = i; farD = d; }
+      });
+      if (far < 0) { this.gems[0].v += v; return; } // every gem is already flying in
+      v += this.gems[far].v;
+      this.gems[far].s.destroy();
+      this.gems.splice(far, 1);
     }
     const s = this.add.image(x, y, spr('gem')).setDepth(3);
     // Ingestion Lag: gems take 2 s to show up.
