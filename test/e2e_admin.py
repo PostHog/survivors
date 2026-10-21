@@ -65,7 +65,9 @@ def watch(page, label):
 
     page.on("console", on_console)
     page.on("pageerror", lambda e: problems.append(f"[{label}] page error: {e}"))
-    page.on("requestfailed", lambda r: problems.append(f"[{label}] request failed: {r.url}") if "favicon" not in r.url else None)
+    # A request the page cancelled (net::ERR_ABORTED: the preview reloading mid-load) didn't fail; anything else did.
+    page.on("requestfailed", lambda r: problems.append(f"[{label}] request failed ({r.failure}): {r.url}")
+            if "favicon" not in r.url and r.failure != "net::ERR_ABORTED" else None)
     page.on("response", lambda r: problems.append(f"[{label}] HTTP {r.status}: {r.url}")
             if r.status >= 400 and "favicon" not in r.url and r.request.resource_type != "document" and "/unlock" not in r.url else None)
 
