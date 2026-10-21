@@ -30,5 +30,5 @@
   // A Custom Domain: Cloudflare creates the DNS record and certificate. It needs the posthog.com zone in the same Cloudflare account
   // as this Worker, and no existing DNS record for survivors.posthog.com.
   "routes": [{ "pattern": "survivors.posthog.com", "custom_domain": true, "zone_name": "posthog.com" }],
-  "observability": { "enabled": true }
+  "observability": { "enabled": false } // Workers Logs cost too much for what we use them for
 }
