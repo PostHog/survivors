@@ -5,7 +5,7 @@ import { getDb } from '../../src/db/client';
 import { sprites } from '../../src/db/schema';
 import csp from '../../src/generated/csp.json';
 import { DEFAULT_SLOT_IDS } from '../../src/lib/default-art';
-import { call, seedProspect, unlock, withCookie } from './helpers';
+import { asUser, call, seedProspect, sessionCookie, unlock, withCookie } from './helpers';
 
 const unlocked = async (opts: Parameters<typeof seedProspect>[0] = {}) => {
   const p = await seedProspect(opts);
@@ -129,7 +129,39 @@ describe('serving an unlocked game', () => {
     const assetsHost = (site.posthog?.host ?? 'https://us.i.posthog.com').replace('.i.posthog.com', '-assets.i.posthog.com');
     expect(csp.game).toContain(`script-src 'self' ${assetsHost};`);
     expect(csp.guide).not.toContain(assetsHost); // the guide runs no analytics
+    expect(csp.guide).not.toContain('posthog');
     expect(csp.game).not.toMatch(/script-src[^;]*\*/);
+  });
+
+  describe('analytics', () => {
+    const posthogOf = async (res: Response) => ((await res.json()) as Manifest).posthog;
+
+    it('go to PostHog for a visitor who has the password: the manifest names the project and the page may talk to it', async () => {
+      const { get } = await unlocked();
+      expect(await posthogOf(await get('theme/manifest.json'))).toEqual(site.posthog);
+      expect((await get('')).headers.get('Content-Security-Policy')).toBe(csp.game);
+    });
+
+    it('never happen for a signed-in team member: no project in the manifest, and a page that could not reach PostHog anyway', async () => {
+      const p = await seedProspect();
+      const staff = await asUser('jane@posthog.com');
+      const manifest = await call(`/g/${p.slug}/theme/manifest.json`, staff); // the admin's live preview loads the game like this
+      expect(manifest.status).toBe(200);
+      expect(await posthogOf(manifest)).toBeNull();
+      const page = await call(`/g/${p.slug}/`, staff);
+      expect(page.headers.get('Content-Security-Policy')).toBe(csp.internal);
+      expect(csp.internal).not.toContain('posthog');
+      expect(csp.internal).toContain("connect-src 'self';");
+      expect(csp.internal).toContain("script-src 'self';");
+    });
+
+    it('count a team member who also knows the password as a team member', async () => {
+      const p = await seedProspect();
+      const { cookie } = await unlock(p.slug);
+      const both = withCookie(`${cookie}; ${await sessionCookie()}`);
+      expect(await posthogOf(await call(`/g/${p.slug}/theme/manifest.json`, both))).toBeNull();
+      expect((await call(`/g/${p.slug}/`, both)).headers.get('Content-Security-Policy')).toBe(csp.internal);
+    });
   });
 
   it('lets the guide run its one inline script, and nothing else inline', async () => {

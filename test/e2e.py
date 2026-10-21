@@ -145,6 +145,9 @@ with sync_playwright() as pw:
     page.click("button")
     page.wait_for_url(f"{BASE}/g/{SLUG}/")
     state = boot(page, "gated", "gated", guide_check=True)
+    if not any(u.endswith("/static/array.js") for u in posthog_requests):
+        problems.append(f"a visitor with the password never loaded PostHog's script: {posthog_requests}")
+    gated_requests = len(posthog_requests)
     check_headers(ctx.request.get(f"{BASE}/g/{SLUG}/").headers, "gated page", guide=False)
     guide = ctx.request.get(f"{BASE}/g/{SLUG}/guide.html")
     check_headers(guide.headers, "gated guide", guide=True)
@@ -199,8 +202,8 @@ with sync_playwright() as pw:
             problems.append(f"/{asset} is missing")
     assert state["title"] == "Bug Survivors: a free browser game from PostHog", state
     assert not state["fallbacks"], state["fallbacks"]
-    if not any(u.endswith("/static/array.js") for u in posthog_requests):
-        problems.append(f"the game never loaded PostHog's script (is the policy blocking it?): {posthog_requests}")
+    if not any(u.endswith("/static/array.js") for u in posthog_requests[gated_requests:]):
+        problems.append(f"the public game never loaded PostHog's script (is the policy blocking it?): {posthog_requests[gated_requests:]}")
     print("root game OK:", state["title"])
     b.close()
 

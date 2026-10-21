@@ -137,7 +137,9 @@ that can't be tested without the real domain.
   back to the model.
 - **Analytics.** The games send events to a PostHog project, set in `game/site.json` (`posthog.key` and `host`; it's a public project token, safe to
   commit). Nothing loads or is sent until the player first presses a key, and nothing is stored in the browser. The content policy lets games
-  load PostHog's script from that one host. Events carry the game's slug, so a prospect's plays are filterable.
+  load PostHog's script from that one host. Events carry the game's slug, so a prospect's plays are filterable. Nothing a team member does is
+  counted: the admin's live preview never starts analytics (a framed game doesn't), and a signed-in team member opening a link gets no project in
+  the manifest and a content policy that can't reach PostHog at all.
 
 The security-relevant behaviour (password gate, email-domain check, key redaction, SSRF rules, tool ordering) has tests that fail when you remove the
 code they cover. If you change any of that, check the tests still fail when they should.

@@ -8,7 +8,7 @@ import { getDb } from '../db/client';
 import { findGateBySlug, type GateRow, getSpriteGrid, listSpriteSlots } from '../db/prospects';
 import type { AppEnv } from '../env';
 import csp from '../generated/csp.json';
-import { canView } from '../lib/access';
+import { canView, isStaff } from '../lib/access';
 import { DEFAULT_SLOT_IDS, hasDefaultArt, renderDefault } from '../lib/default-art';
 import { COOKIE_TTL_S, cookieName, signUnlock, verifyPassword } from '../lib/gate';
 import { parseSprite, renderSheet } from '../lib/sprite';
@@ -75,10 +75,18 @@ game.get(`/${slug}/theme/manifest.json`, async (c) => {
   // Every slot is listed, so the whole game takes the prospect's colours: hand-drawn slots come from D1, the rest are the kit's
   // default art recoloured. (A slot left out of the manifest would show the default art in its default colours.)
   const slots = new Set([...DEFAULT_SLOT_IDS, ...(await listSpriteSlots(getDb(c.env), p.id))]);
-  // music: null = the kit's default track; posthog comes from game/site.json, like the root game's manifest.
+  // music: null = the kit's default track; posthog comes from game/site.json, like the root game's manifest, except that nothing a team
+  // member does (the admin's live preview, or opening the link while signed in) is analytics.
   const sprites = Object.fromEntries([...slots].map((s) => [s, `theme/sprites/${s}.png?v=${p.version}`]));
   c.header('Cache-Control', PRIVATE);
-  return c.json({ slug: p.slug, kit: 'bug-survivors', music: null, posthog: site.posthog, draft: false, sprites });
+  return c.json({
+    slug: p.slug,
+    kit: 'bug-survivors',
+    music: null,
+    posthog: (await isStaff(c.env, c.req.raw)) ? null : site.posthog,
+    draft: false,
+    sprites,
+  });
 });
 
 game.get(`/${slug}/theme/sprites/:file{[a-z0-9_]+\\.png}`, async (c) => {
@@ -114,7 +122,9 @@ game.get(`/${slug}/*`, async (c) => {
 
   const hashed = /^\/assets\/[^/]+-[A-Za-z0-9_-]{8,}\.(js|css)$/.test(rest); // hashed bundle files never change
   const out = new Response(asset.body, asset);
-  out.headers.set('Content-Security-Policy', /^\/guide(\.html)?$/.test(rest) ? csp.guide : csp.game);
+  // The page decides what a document may do, so only it needs the viewer checked: team members get the policy without PostHog.
+  const policy = /^\/guide(\.html)?$/.test(rest) ? csp.guide : rest === '/' && (await isStaff(c.env, c.req.raw)) ? csp.internal : csp.game;
+  out.headers.set('Content-Security-Policy', policy);
   out.headers.set('Cache-Control', hashed ? 'private, max-age=31536000, immutable' : rest === '/' ? PRIVATE : 'private, no-cache');
   return asset.headers.get('Content-Type')?.startsWith('text/html') ? privatePage(out) : out;
 });

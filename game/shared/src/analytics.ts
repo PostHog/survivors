@@ -9,6 +9,8 @@ let cfg: { key: string; host: string; slug: string; kit: string } | null = null;
 
 export function initAnalytics(c: { key?: string; host?: string } | undefined, slug: string, kit: string) {
   if (!c?.key) return;
+  // A game shown inside another page is the admin's preview (nothing else may frame it: frame-ancestors 'self'). Never analytics.
+  if (window.top !== window) return;
   cfg = { key: c.key, host: c.host || 'https://us.i.posthog.com', slug, kit };
   const start = () => {
     window.removeEventListener('keydown', start);

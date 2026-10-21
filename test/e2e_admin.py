@@ -21,10 +21,16 @@ KEY = "sk-ant-e2e-0123456789"
 problems = []
 
 
-def stub_posthog(context):
-    """A game sends analytics to PostHog once a key is pressed (the preview and the prospect's view both play it). Answer for PostHog here,
-    so a test never writes to the real project."""
+posthog_requests = {}
+
+
+def stub_posthog(context, label):
+    """A game sends analytics to PostHog once a key is pressed. Answer for PostHog here, so a test never writes to the real project, and
+    remember what was asked for: a page that is not meant to send analytics must not ask at all."""
+    posthog_requests[label] = []
+
     def answer(route):
+        posthog_requests[label].append(route.request.url)
         script = route.request.url.endswith(".js")
         route.fulfill(status=200, content_type="application/javascript" if script else "application/json", body="/* stub */" if script else "{}")
     context.route(re.compile(r"https://[^/]*posthog\.com/.*"), answer)
@@ -76,7 +82,7 @@ os.makedirs(OUT, exist_ok=True)
 with sync_playwright() as pw:
     b = pw.chromium.launch()
     ctx = b.new_context(viewport={"width": 1500, "height": 950})
-    stub_posthog(ctx)
+    stub_posthog(ctx, "admin")
     page = ctx.new_page()
     watch(page, "admin")
 
@@ -139,6 +145,17 @@ with sync_playwright() as pw:
     page.screenshot(path=f"{OUT}/admin-4-preview.png")
     print("preview shows the themed game")
 
+    # the preview must never send analytics, however it is played: click into the game, press keys (which is what starts analytics
+    # in a game that has it), and look at what the browser asked PostHog for, and what the page loaded
+    page.locator("iframe").first.click(position={"x": 200, "y": 150})
+    for key in ("Enter", "ArrowRight", "Space"):
+        page.keyboard.press(key)
+        page.wait_for_timeout(300)
+    page.wait_for_timeout(1500)
+    assert frame.evaluate("typeof window.posthog") == "undefined", "PostHog's script was loaded by the preview"
+    assert posthog_requests["admin"] == [], f"the preview talked to PostHog: {posthog_requests['admin']}"
+    print("preview sends nothing to PostHog")
+
     # 6. the conversation survives a reload
     page.reload()
     expect(page.get_by_text("Done: the game is green")).to_be_visible(timeout=15000)
@@ -188,7 +205,7 @@ with sync_playwright() as pw:
     fresh = page.get_by_test_id("new-password").locator("input").first.input_value()
     assert fresh and fresh != password
     prospect = b.new_context(viewport={"width": 960, "height": 600})
-    stub_posthog(prospect)
+    stub_posthog(prospect, "prospect")
     pp = prospect.new_page()
     watch(pp, "prospect")
     pp.goto(link)
