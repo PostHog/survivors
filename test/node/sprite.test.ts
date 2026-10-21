@@ -44,7 +44,7 @@ describe('sprite renderer', () => {
   );
 
   // A pure black or white brand colour has no darker/lighter shade to find. The game's own Python build raises StopIteration
-  // for it (an upstream bug, so there is nothing to compare against); this Worker must still render the game.
+  // for it (a bug in that reference, so there is nothing to compare against); this Worker must still render the game.
   it.each([
     ['black', { primary: '#000000', secondary: '#101010', accent: '#ffffff' }],
     ['white', { primary: '#ffffff', secondary: '#fcfcfc', accent: '#000000' }],

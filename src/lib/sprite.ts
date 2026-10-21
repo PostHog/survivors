@@ -1,6 +1,6 @@
 // .sprite text grids -> PNG sprite sheets. A TypeScript port of the parts of shared/pixel.py the game needs at run time
 // (load, brand_palette, ramp, colour, to_images), so a sprite stored as text in D1 renders identically to what the Python
-// pipeline would have produced. The format is documented at the top of shared/pixel.py in the games repo.
+// build would have produced. The format is documented at the top of game/shared/pixel.py.
 import { encodePng } from './png';
 
 export interface Sprite {

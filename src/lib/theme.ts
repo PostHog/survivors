@@ -1,4 +1,4 @@
-// Theme validation: a port of the games repo's pipeline/tools/check_theme.py + theme_rules.py. A theme must pass the kit's JSON
+// Theme validation: the game's content rules, in TypeScript so they run on Workers. A theme must pass the kit's JSON
 // Schema, the content filter and the kit's cross-field rule, with the prospect's fixed fields (name, domain) applied first.
 import { Validator } from '@cfworker/json-schema';
 import { DEFAULT_THEME, THEME_SCHEMA } from './kit';
@@ -114,7 +114,7 @@ export function contentProblems(theme: unknown, companyName: string): Problem[] 
 
 const validator = new Validator(THEME_SCHEMA as never, '2020-12', false);
 
-/** Fields the prospect record decides, not the author of the theme (the games repo's apply_brief). Returns a copy. */
+/** Fields the prospect record decides, not the author of the theme. Returns a copy. */
 export function applyFixed(theme: unknown, fixed: Fixed): unknown {
   const t = structuredClone(theme) as Record<string, unknown>;
   const p = (t.prospect && typeof t.prospect === 'object' ? t.prospect : {}) as Record<string, unknown>;
@@ -162,7 +162,7 @@ export function validateTheme(raw: unknown, fixed: Fixed): { ok: true; theme: Th
   return problems.length ? { ok: false, problems } : { ok: true, theme: t };
 }
 
-/** The theme a new prospect starts with: the kit default, made out to this company (the games repo's safe_theme). */
+/** The theme a new prospect starts with: the kit default, made out to this company. */
 export function newTheme(name: string, domain?: string | null): Theme {
   const t = structuredClone(DEFAULT_THEME) as Theme;
   const short = name.slice(0, 14);

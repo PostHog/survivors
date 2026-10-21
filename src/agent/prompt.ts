@@ -8,7 +8,7 @@ export function section(md: string, titleStart: string): string {
   return (parts.find((p) => p.startsWith(`## ${titleStart}`)) ?? '').trim();
 }
 
-/** The games repo's rules.md ends with an instruction to print only JSON, which is for a different way of working. */
+/** The content rules (game/shared/prompts/rules.md) end with an instruction to print only JSON, which is for a different way of working. */
 const contentRules = PROMPTS.rules.replace(/\n*Output: ONLY the JSON object[^\n]*\n*$/, '\n').trim();
 
 const slotTable = EDITABLE_SLOTS.map(

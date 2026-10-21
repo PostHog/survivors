@@ -39,7 +39,7 @@ One Cloudflare Worker, one D1 database, and the game as static assets.
 
 A game is rows in D1, not files: a theme (JSON) and the sprites the assistant redrew, stored as small text grids. The Worker answers the three
 URLs the game already fetches (`theme.json`, `manifest.json`, `sprites/<slot>.png`) from those rows and renders sprites to PNG on demand. Sprites
-nobody redrew are the stock art, recoloured to the brand palette, and match what the original Python tooling produces pixel for pixel (there's a
+nobody redrew are the stock art, recoloured to the brand palette, and match what the game's own Python renderer produces pixel for pixel (there's a
 test for that).
 
 The assistant is an [AI SDK](https://ai-sdk.dev) agent that runs in the Worker. Its tools edit the game through the same validation the admin API
@@ -152,9 +152,8 @@ code they cover. If you change any of that, check the tests still fail when they
 
 ## Credits
 
-The game is Bug Survivors from [CEMcNEill/games](https://github.com/CEMcNEill/games), copied at
-[`551915f`](https://github.com/CEMcNEill/games/commit/551915f09ac3b5e736b673ba833527e2b4341d04). From there it's maintained here:
-[`game/UPSTREAM.md`](game/UPSTREAM.md) lists what was left behind and what changed (no co-op, a self-hosted font for the guide).
+Bug Survivors was built by Chris ([@CEMcNEill](https://github.com/CEMcNEill)). This repo is that game plus the Worker that makes a themed copy of it
+for each prospect.
 
 ## License
 

@@ -1,5 +1,5 @@
-// What a leaderboard accepts: the same checks (and the same error words, which the game shows players) as the games repo's
-// original relay. Anyone can post a fake score with dev tools; that's the trade for no logins. The checks keep it honest-ish:
+// What a leaderboard accepts: the same checks (and the same error words, which the game shows players) as the relay this
+// replaced. Anyone can post a fake score with dev tools; that's the trade for no logins. The checks keep it honest-ish:
 // A-Z initials minus a blocklist, sane stats, a score that fits the run's length, and a few posts a minute per IP.
 import { z } from 'zod';
 

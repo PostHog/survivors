@@ -1,5 +1,5 @@
 """Reference check for the TypeScript renderer: every PNG the Worker code wrote must match the game's own Python build
-(shared/sprites.py build(): what the original pipeline used to render a prospect's game) pixel for pixel, for every slot.
+(shared/sprites.py build(), the game's Python renderer) pixel for pixel, for every slot.
     python compare_sprites.py <game_dir> <dir_with_ts_pngs> <theme.json>"""
 import json, os, sys, tempfile
 game, out, theme_path = sys.argv[1:4]

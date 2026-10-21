@@ -2,7 +2,7 @@
   "name": "@survivors/game",
   "private": true,
   "type": "module",
-  "description": "The Bug Survivors game (see UPSTREAM.md). Built into ../public by build.mjs.",
+  "description": "The Bug Survivors game. Built into ../public by build.mjs.",
   "scripts": {
     "build": "node build.mjs",
     "dev": "node build.mjs --dev",
