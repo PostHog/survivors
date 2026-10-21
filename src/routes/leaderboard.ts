@@ -5,7 +5,7 @@ import { createMiddleware } from 'hono/factory';
 import { getDb } from '../db/client';
 import { findGateBySlug } from '../db/prospects';
 import { DEFAULT_SLUG } from '../db/schema';
-import { addScore, deleteScore, topScores } from '../db/scores';
+import { addScore, topScores } from '../db/scores';
 import type { AppEnv } from '../env';
 import { canView } from '../lib/access';
 import { BOARD_RE, scoreInput } from '../lib/board';
@@ -22,9 +22,7 @@ const access = createMiddleware<LbEnv>(async (c, next) => {
   if (slug !== DEFAULT_SLUG) {
     const row = await findGateBySlug(getDb(c.env), slug);
     if (!row) return c.json({ error: 'not found' }, 404);
-    // An admin's delete carries x-admin-key instead of a cookie.
-    const adminDelete = c.req.method === 'DELETE' && !!c.env.LB_ADMIN && c.req.header('x-admin-key') === c.env.LB_ADMIN;
-    if (!adminDelete && !(await canView(c.env, c.req.raw, row))) return c.json({ error: 'password required' }, 401);
+    if (!(await canView(c.env, c.req.raw, row))) return c.json({ error: 'password required' }, 401);
   }
   c.set('board', name);
   await next();
@@ -57,11 +55,4 @@ leaderboard.post(`/lb/${board}`, access, async (c) => {
   const top = await topScores(db, c.get('board'));
   const i = top.findIndex((e) => e.id === id);
   return c.json({ rank: i >= 0 ? i + 1 : null, id, top });
-});
-
-leaderboard.delete(`/lb/${board}/:id{[0-9]+}`, access, async (c) => {
-  if (!c.env.LB_ADMIN || c.req.header('x-admin-key') !== c.env.LB_ADMIN) return c.json({ error: 'forbidden' }, 403);
-  const db = getDb(c.env);
-  await deleteScore(db, c.get('board'), Number(c.req.param('id')));
-  return c.json({ top: await topScores(db, c.get('board')) });
 });

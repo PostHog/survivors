@@ -109,20 +109,16 @@ describe('leaderboards', () => {
     expect(statuses).toEqual([200, 200, 200, 200, 200, 200, 429, 429]);
   });
 
-  it('let only an admin delete an entry', async () => {
+  it('have no public way to delete an entry: moderation goes through the admin API', async () => {
     const { slug } = await seedProspect();
     const { cookie } = await unlock(slug);
     const created = (await (await post(`/mp/lb/${slug}:run`, score('abc', 100), cookie)).json()) as { id: number };
-    const del = (key?: string, c: string | null = cookie) =>
-      call(`/mp/lb/${slug}:run/${created.id}`, {
-        method: 'DELETE',
-        headers: { ...(key ? { 'x-admin-key': key } : {}), ...(c ? { Cookie: c } : {}) },
-      });
-
-    expect((await del()).status).toBe(403);
-    expect((await del('wrong')).status).toBe(403);
-    expect((await del('test-admin', null)).status).toBe(200); // the key alone is enough: no password needed
+    const attempts: Record<string, string>[] = [{ Cookie: cookie ?? '' }, { 'x-admin-key': 'test-admin' }];
+    for (const headers of attempts) {
+      const res = await call(`/mp/lb/${slug}:run/${created.id}`, { method: 'DELETE', headers });
+      expect(res.status).toBe(404);
+    }
     const top = ((await (await call(`/mp/lb/${slug}:run`, withCookie(cookie))).json()) as { top: unknown[] }).top;
-    expect(top).toEqual([]);
+    expect(top).toHaveLength(1);
   });
 });

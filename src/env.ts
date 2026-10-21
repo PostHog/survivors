@@ -6,8 +6,6 @@ export interface Env {
   CHAT_LIMIT: RateLimit;
   /** HMAC key for the unlock cookies (and, later, admin sessions): `wrangler secret put SESSION_SECRET` */
   SESSION_SECRET: string;
-  /** Lets an admin delete leaderboard entries: `wrangler secret put LB_ADMIN` */
-  LB_ADMIN?: string;
   /** Local development only: skips PostHog sign-in and signs this email in. Honoured on localhost, nowhere else. */
   DEV_LOGIN_EMAIL?: string;
   /** Optional: reach the AI providers through a gateway or proxy instead of their public endpoints. */

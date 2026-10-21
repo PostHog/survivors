@@ -99,14 +99,11 @@ Set it up once, then every push to `main` deploys by itself.
    Cloudflare installs the dependencies itself and reads `.node-version` (22).
 3. Give the build token permission to change D1. The token Workers Builds creates can edit Workers, KV, R2 and routes, but not D1, and the
    deploy command applies database migrations. Add **D1: Edit** to it under My Profile, API Tokens.
-4. Add two runtime secrets under Settings, Variables and Secrets (not the Build variables, which the Worker can't see):
+4. Add a runtime secret under Settings, Variables and Secrets (not the Build variables, which the Worker can't see):
    - `SESSION_SECRET`: a long random string, for example the output of `openssl rand -base64 48`. The Worker signs its cookies with it:
      the password-gate cookie that lets a visitor into a prospect's game, the admin session, and the short-lived state used while
      signing in with PostHog. Anyone who knows it can forge those, so keep it out of the repo. Changing it signs everyone out and
      sends visitors back to the password page. Without it the Worker answers every request with a 503 that says so.
-   - `LB_ADMIN` (optional): a password for deleting a score from a leaderboard with a script, for example a rude name on the public
-     game's board: `curl -X DELETE -H "x-admin-key: …" https://survivors.posthog.com/mp/lb/<board>/<id>`. The admin app moderates a
-     prospect's board with your PostHog session, so this is only needed for the public one. Leave it unset and that route stays closed.
 
 **What a push does**
 

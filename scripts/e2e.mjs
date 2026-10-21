@@ -21,7 +21,7 @@ fs.writeFileSync(seed, spawnSync('npx', ['tsx', 'scripts/seed-dev.mts'], { encod
 run('npx', ['wrangler', 'd1', 'execute', 'survivors', '--local', '--persist-to', state, '--file', seed], { stdio: 'ignore' });
 
 // Its own secrets, so the test needs no .dev.vars (CI has none).
-const secrets = ['--var', 'SESSION_SECRET:e2e-session-secret-0123456789', '--var', 'LB_ADMIN:e2e-admin'];
+const secrets = ['--var', 'SESSION_SECRET:e2e-session-secret-0123456789'];
 // A scripted fake of the AI provider, and a developer sign-in (PostHog itself cannot be reached from localhost).
 const LLM_PORT = process.env.E2E_LLM_PORT ?? '8798';
 const llm = spawn('npx', ['tsx', 'scripts/fake-llm.mts', LLM_PORT], { stdio: 'ignore', detached: true });

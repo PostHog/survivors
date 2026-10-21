@@ -22,7 +22,6 @@ export default defineConfig(async () => {
                 bindings: {
                   TEST_MIGRATIONS: migrations,
                   SESSION_SECRET: 'test-session-secret',
-                  LB_ADMIN: 'test-admin',
                   // the chat tests answer for the AI providers at these addresses (see test/worker/fake-llm.ts)
                   ANTHROPIC_BASE_URL: 'https://llm.test/anthropic/v1',
                   OPENAI_BASE_URL: 'https://llm.test/openai/v1',
