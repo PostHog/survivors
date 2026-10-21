@@ -60,6 +60,8 @@ describe('our PostHog client identity', () => {
     });
     expect(doc.client_name).toBeTruthy();
     expect(doc.scope).toBe('openid email');
+    // PostHog rejects a document whose com.posthog.scopes holds no PostHog API scope (openid and email aren't any).
+    expect(doc).not.toHaveProperty(['com.posthog']);
   });
 });
 

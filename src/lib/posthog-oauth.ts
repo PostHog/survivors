@@ -25,7 +25,8 @@ export const clientMetadata = (origin: string) => ({
   response_types: ['code'],
   token_endpoint_auth_method: 'none',
   scope: SCOPES.join(' '),
-  'com.posthog': { scopes: SCOPES },
+  // No 'com.posthog': { scopes }: it lists PostHog API scopes, and openid and email aren't among them, so PostHog filters
+  // the list to nothing and rejects the whole document. OIDC scopes are accepted at /authorize without it.
 });
 
 /** A fresh state and PKCE pair, and the URL to send the browser to. */
