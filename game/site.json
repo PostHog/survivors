@@ -1,5 +1,8 @@
 {
   "site": "https://survivors.posthog.com",
   "relay": "/mp",
-  "posthog": null
+  "posthog": {
+    "key": "sTMFPsFhdP1Ssg",
+    "host": "https://us.i.posthog.com"
+  }
 }

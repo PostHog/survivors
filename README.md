@@ -138,7 +138,9 @@ that can't be tested without the real domain.
   limits size, time and the number of pages per reply.
 - **Cost.** 20 chat messages a minute per person, 30 steps and five minutes per reply, and only the three newest images in a conversation are sent
   back to the model.
-- **Analytics.** Set `posthog` in `game/site.json` and rebuild to send the games' events to a PostHog project.
+- **Analytics.** The games send events to a PostHog project, set in `game/site.json` (`posthog.key` and `host`; it's a public project token, safe to
+  commit). Nothing loads or is sent until the player first presses a key, and nothing is stored in the browser. The content policy lets games
+  load PostHog's script from that one host. Events carry the game's slug, so a prospect's plays are filterable.
 
 The security-relevant behaviour (password gate, email-domain check, key redaction, SSRF rules, tool ordering) has tests that fail when you remove the
 code they cover. If you change any of that, check the tests still fail when they should.

@@ -4,6 +4,7 @@ request. Needs the seed from scripts/seed-dev.mts (slug ledgerly-test1, password
 
     uv run -q --with playwright python test/e2e.py [base_url] [out_dir]
 """
+import re
 import sys
 from playwright.sync_api import sync_playwright
 
@@ -26,6 +27,19 @@ def watch(page, label):
     page.on("requestfailed", lambda r: problems.append(f"[{label}] request failed: {r.url}") if "favicon" not in r.url else None)
     page.on("response", lambda r: problems.append(f"[{label}] HTTP {r.status}: {r.url}")
             if r.status >= 400 and "favicon" not in r.url and "/unlock" not in r.url and r.request.resource_type != "document" else None)
+
+
+posthog_requests = []
+
+
+def stub_posthog(context):
+    """The games send analytics to PostHog once a key is pressed. A test must not do that to the real project, so PostHog's hosts are answered
+    here instead. The browser still applies the page's policy first: a script it would refuse never reaches this handler."""
+    def answer(route):
+        posthog_requests.append(route.request.url)
+        script = route.request.url.endswith(".js")
+        route.fulfill(status=200, content_type="application/javascript" if script else "application/json", body="/* stub */" if script else "{}")
+    context.route(re.compile(r"https://[^/]*posthog\.com/.*"), answer)
 
 
 def wait(page, expr, timeout=30000):
@@ -117,6 +131,7 @@ with sync_playwright() as pw:
 
     # 1. gated game, anonymous: the gate, and nothing of the game behind it
     ctx = b.new_context(viewport={"width": 960, "height": 600})
+    stub_posthog(ctx)
     page = ctx.new_page()
     watch(page, "gated")
     page.goto(f"{BASE}/g/{SLUG}/")
@@ -153,7 +168,9 @@ with sync_playwright() as pw:
     print("cookie scoped to the unlocking browser OK")
 
     # 2. the default game on the root: public, uncustomized
-    page2 = b.new_context(viewport={"width": 960, "height": 600}).new_page()
+    root_ctx = b.new_context(viewport={"width": 960, "height": 600})
+    stub_posthog(root_ctx)
+    page2 = root_ctx.new_page()
     watch(page2, "root")
     root = page2.goto(f"{BASE}/")
     check_headers(root.headers, "root page (static assets, _headers)", guide=False, indexable=True)
@@ -182,6 +199,8 @@ with sync_playwright() as pw:
             problems.append(f"/{asset} is missing")
     assert state["title"] == "Bug Survivors: a free browser game from PostHog", state
     assert not state["fallbacks"], state["fallbacks"]
+    if not any(u.endswith("/static/array.js") for u in posthog_requests):
+        problems.append(f"the game never loaded PostHog's script (is the policy blocking it?): {posthog_requests}")
     print("root game OK:", state["title"])
     b.close()
 

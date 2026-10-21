@@ -21,6 +21,15 @@ KEY = "sk-ant-e2e-0123456789"
 problems = []
 
 
+def stub_posthog(context):
+    """A game sends analytics to PostHog once a key is pressed (the preview and the prospect's view both play it). Answer for PostHog here,
+    so a test never writes to the real project."""
+    def answer(route):
+        script = route.request.url.endswith(".js")
+        route.fulfill(status=200, content_type="application/javascript" if script else "application/json", body="/* stub */" if script else "{}")
+    context.route(re.compile(r"https://[^/]*posthog\.com/.*"), answer)
+
+
 def watch(page, label):
     def on_console(m):
         if m.type not in ("error", "warning") or "GL Driver Message" in m.text:
@@ -67,6 +76,7 @@ os.makedirs(OUT, exist_ok=True)
 with sync_playwright() as pw:
     b = pw.chromium.launch()
     ctx = b.new_context(viewport={"width": 1500, "height": 950})
+    stub_posthog(ctx)
     page = ctx.new_page()
     watch(page, "admin")
 
@@ -178,6 +188,7 @@ with sync_playwright() as pw:
     fresh = page.get_by_test_id("new-password").locator("input").first.input_value()
     assert fresh and fresh != password
     prospect = b.new_context(viewport={"width": 960, "height": 600})
+    stub_posthog(prospect)
     pp = prospect.new_page()
     watch(pp, "prospect")
     pp.goto(link)

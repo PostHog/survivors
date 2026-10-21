@@ -2,5 +2,8 @@
   "slug": "bug-survivors-default",
   "sprites": {},
   "music": null,
-  "posthog": null
+  "posthog": {
+    "key": "sTMFPsFhdP1Ssg",
+    "host": "https://us.i.posthog.com"
+  }
 }

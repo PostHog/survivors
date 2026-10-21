@@ -124,13 +124,21 @@ describe('serving an unlocked game', () => {
     expect((await get('assets/nope.png')).status).toBe(404);
   });
 
+  it("lets the game load PostHog's analytics script from the one host it is configured for, and nothing else", () => {
+    expect(site.posthog?.key).toBeTruthy();
+    const assetsHost = (site.posthog?.host ?? 'https://us.i.posthog.com').replace('.i.posthog.com', '-assets.i.posthog.com');
+    expect(csp.game).toContain(`script-src 'self' ${assetsHost};`);
+    expect(csp.guide).not.toContain(assetsHost); // the guide runs no analytics
+    expect(csp.game).not.toMatch(/script-src[^;]*\*/);
+  });
+
   it('lets the guide run its one inline script, and nothing else inline', async () => {
     const { get } = await unlocked();
     const res = await get('guide.html');
     expect(res.status).toBe(200);
     expect(res.headers.get('Content-Security-Policy')).toBe(csp.guide);
     expect(csp.guide).toMatch(/script-src 'self' 'sha256-[A-Za-z0-9+/=]+'/);
-    expect(csp.game).toContain("script-src 'self';");
+    expect(csp.game).toMatch(/script-src 'self'( https:\/\/[a-z-]+\.i\.posthog\.com)?;/); // no inline script: at most PostHog's own script host
     expect(csp.game).not.toContain('unsafe-inline;'); // styles may be inline, scripts may not
   });
 });
