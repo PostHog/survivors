@@ -25,7 +25,14 @@ const secrets = ['--var', 'SESSION_SECRET:e2e-session-secret-0123456789'];
 // A scripted fake of the AI provider, and a developer sign-in (PostHog itself cannot be reached from localhost).
 const LLM_PORT = process.env.E2E_LLM_PORT ?? '8798';
 const llm = spawn('npx', ['tsx', 'scripts/fake-llm.mts', LLM_PORT], { stdio: 'ignore', detached: true });
-const env = ['--var', 'DEV_LOGIN_EMAIL:e2e@posthog.com', '--var', `ANTHROPIC_BASE_URL:http://127.0.0.1:${LLM_PORT}/v1`];
+const env = [
+  '--var',
+  'DEV_LOGIN_EMAIL:e2e@posthog.com',
+  '--var',
+  'ANALYTICS_LOCAL:1',
+  '--var',
+  `ANTHROPIC_BASE_URL:http://127.0.0.1:${LLM_PORT}/v1`,
+];
 const server = spawn(
   'npx',
   [

@@ -128,8 +128,9 @@ that can't be tested without the real domain.
 - **Search engines.** The home page and the guide are indexable and carry the usual tags: canonical URL, Open Graph and Twitter cards, and JSON-LD
   (`VideoGame`, `Organization`, `WebSite`; `TechArticle` on the guide). Everything else answers with `X-Robots-Tag: noindex`, and a prospect's
   game has those tags stripped out. `robots.txt` doesn't block anything, because a crawler that can't fetch a page never sees its `noindex`.
-- **Content-Security-Policy.** `script-src 'self'` everywhere, with one exception: the guide has a single inline script, allowed by its hash on
-  `/guide` only. The admin app can only connect to its own origin; the browser never talks to an AI provider directly.
+- **Content-Security-Policy.** `script-src 'self'` everywhere, with two exceptions: the guide has a single inline script, allowed by its hash on
+  `/guide` only, and the public game may load PostHog's analytics script from one host. The admin app can only connect to its own origin and
+  PostHog; the browser never talks to an AI provider directly.
 - **Who can edit what.** Anyone signed in can see and change every game. Each game records who made it.
 - **Website reading.** The assistant's `fetch_page` tool only talks to public http(s) hosts on the default ports, re-checks every redirect, and
   limits size, time and the number of pages per reply.
@@ -140,6 +141,10 @@ that can't be tested without the real domain.
   load PostHog's script from that one host. Events carry the game's slug, so a prospect's plays are filterable. Nothing a team member does is
   counted: the admin's live preview never starts analytics (a framed game doesn't), and a signed-in team member opening a link gets no project in
   the manifest and a content policy that can't reach PostHog at all.
+- **Admin analytics.** The admin app reports its own usage (page views, clicks and session replays, identified by the signed-in person's email) to
+  the same PostHog project, with `app: survivors-admin` on every event. It's off on localhost unless `ANALYTICS_LOCAL` is set. Every input is masked in
+  replays, the places that show an AI key or a prospect's password are kept out of them completely (`ph-no-capture`), and network headers and bodies
+  are never recorded. The browser test fails if a key or password reaches PostHog.
 
 The security-relevant behaviour (password gate, email-domain check, key redaction, SSRF rules, tool ordering) has tests that fail when you remove the
 code they cover. If you change any of that, check the tests still fail when they should.

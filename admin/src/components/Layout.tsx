@@ -1,8 +1,9 @@
 import { KeyRoundIcon, LogOutIcon } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router';
 import { SettingsDialog } from '@/components/SettingsDialog';
 import { Button } from '@/components/ui/button';
+import { startAnalytics } from '@/lib/analytics';
 import { useLlmSettings } from '@/lib/llm-settings';
 import { useMe } from '@/lib/queries';
 
@@ -10,6 +11,9 @@ export function Layout() {
   const me = useMe();
   const llm = useLlmSettings();
   const [settings, setSettings] = useState(false);
+  useEffect(() => {
+    if (me.data) void startAnalytics(me.data);
+  }, [me.data]);
 
   return (
     <div className="flex h-screen flex-col">

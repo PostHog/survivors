@@ -8,6 +8,8 @@ export interface Env {
   SESSION_SECRET: string;
   /** Local development only: skips PostHog sign-in and signs this email in. Honoured on localhost, nowhere else. */
   DEV_LOGIN_EMAIL?: string;
+  /** Local development and tests only: report the admin app's usage to PostHog on localhost too (otherwise it is off there). */
+  ANALYTICS_LOCAL?: string;
   /** Optional: reach the AI providers through a gateway or proxy instead of their public endpoints. */
   ANTHROPIC_BASE_URL?: string;
   OPENAI_BASE_URL?: string;

@@ -164,6 +164,13 @@ describe('serving an unlocked game', () => {
     });
   });
 
+  it('lets the admin app report to PostHog and nowhere else, and load no script from outside', () => {
+    const hosts = ['https://us.i.posthog.com', 'https://us-assets.i.posthog.com'];
+    expect(csp.admin).toContain(`connect-src 'self' ${hosts.join(' ')};`);
+    expect(csp.admin).toContain("script-src 'self';"); // PostHog's code is bundled into the app, not loaded
+    expect(csp.admin).not.toMatch(/\*/);
+  });
+
   it('lets the guide run its one inline script, and nothing else inline', async () => {
     const { get } = await unlocked();
     const res = await get('guide.html');

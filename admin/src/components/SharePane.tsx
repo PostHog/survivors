@@ -45,7 +45,7 @@ export function SharePane({ game }: { game: ProspectDetail }) {
         </CardHeader>
         <CardContent className="space-y-3">
           {fresh && (
-            <div className="space-y-2 rounded-md border bg-secondary p-3" data-testid="new-password">
+            <div className="ph-no-capture space-y-2 rounded-md border bg-secondary p-3" data-testid="new-password">
               <Label>New password (shown once)</Label>
               <div className="flex gap-2">
                 <Input readOnly value={fresh} className="font-mono" />

@@ -9,6 +9,8 @@ export interface Problem {
 export interface Me {
   email: string;
   name: string;
+  /** The PostHog project the admin app reports its own usage to, or null (not on localhost, so developers don't add noise). */
+  analytics: { key: string; host: string } | null;
 }
 
 export interface ProspectSummary {

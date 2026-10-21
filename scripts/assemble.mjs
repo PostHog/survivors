@@ -34,27 +34,29 @@ const csp = (scriptSrc, analytics = false) =>
     "form-action 'self'",
     "frame-ancestors 'self'",
   ].join('; ');
-// The admin app talks only to this origin (the Worker calls the AI providers, so a person's API key never goes to a third party from
-// the browser) and may not be framed by anyone.
+// Analytics goes to one PostHog project (game/site.json). The games load its script from the assets twin of the ingestion host
+// (game/shared/src/analytics.ts), so that host may serve scripts to the game, and nothing else may. The admin app bundles PostHog's code,
+// so it loads no script from anywhere, and only needs to send to the two hosts.
+const posthog = JSON.parse(fs.readFileSync(path.join(root, 'game/site.json'), 'utf8')).posthog;
+const ingestHost = posthog ? (posthog.host ?? 'https://us.i.posthog.com') : null;
+const assetsHost = ingestHost?.replace('.i.posthog.com', '-assets.i.posthog.com');
+const analyticsScripts = assetsHost ? ` ${assetsHost}` : '';
+const posthogHosts = ingestHost ? [ingestHost, assetsHost] : [];
+// The admin app talks to this origin and to PostHog (its own usage analytics). The Worker calls the AI providers, so a person's API key
+// never goes to a third party from the browser. It may not be framed by anyone.
 const admin = [
   "default-src 'self'",
   "script-src 'self'",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self'",
-  "connect-src 'self'",
+  `connect-src 'self' ${posthogHosts.join(' ')}`,
   "frame-src 'self'",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
   "frame-ancestors 'none'",
 ].join('; ');
-// The game's analytics (game/shared/src/analytics.ts) loads PostHog's script from the assets twin of the ingestion host, so that host may serve scripts
-// to the game, and nothing else may. Events go out through connect-src, which already allows PostHog.
-const posthog = JSON.parse(fs.readFileSync(path.join(root, 'game/site.json'), 'utf8')).posthog;
-const analyticsScripts = posthog
-  ? ` ${(posthog.host ?? 'https://us.i.posthog.com').replace('.i.posthog.com', '-assets.i.posthog.com')}`
-  : '';
 // `internal` is the game for signed-in team members, which is how the admin's live preview is served: no PostHog, so even a game that
 // asked for it could neither load its script nor send an event. Nothing a team member does in the game is analytics.
 const policies = {

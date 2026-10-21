@@ -80,7 +80,7 @@ export function NewGameDialog() {
                   <CopyButton text={created.url} label="Link" />
                 </div>
               </div>
-              <div className="space-y-1">
+              <div className="ph-no-capture space-y-1">
                 <Label>Password</Label>
                 <div className="flex gap-2">
                   <Input readOnly value={created.password} data-testid="created-password" className="font-mono" />

@@ -6,6 +6,7 @@ console error, policy violation or failed request.
 
     uv run -q --with playwright --with pillow python test/e2e_admin.py <base_url> <out_dir> <fake_llm_url>
 """
+import gzip
 import io
 import json
 import os
@@ -21,18 +22,38 @@ KEY = "sk-ant-e2e-0123456789"
 problems = []
 
 
-posthog_requests = {}
+posthog_requests = {}  # per browser context: what the pages asked PostHog for
+
+# What PostHog's flags and config endpoints answer: session recording on. (Without it posthog-js would never start the recorder.)
+RECORDING = {
+    "endpoint": "/s/", "consoleLogRecordingEnabled": False, "recorderVersion": "v2", "sampleRate": None,
+    "minimumDurationMilliseconds": None, "linkedFlag": None, "networkPayloadCapture": None, "masking": None,
+}
+FLAGS = {"featureFlags": {}, "featureFlagPayloads": {}, "errorsWhileComputingFlags": False, "supportedCompression": ["gzip-js"],
+         "sessionRecording": RECORDING, "autocapture_opt_out": False, "config": {"enable_collect_everything": True}}
 
 
 def stub_posthog(context, label):
-    """A game sends analytics to PostHog once a key is pressed. Answer for PostHog here, so a test never writes to the real project, and
-    remember what was asked for: a page that is not meant to send analytics must not ask at all."""
+    """The pages send analytics to PostHog. Answer for PostHog here, so a test never writes to the real project, and remember what was
+    asked for (and by which frame, and with what body): a page that is not meant to send analytics must not ask at all, and what is sent
+    must not hold a secret."""
     posthog_requests[label] = []
 
     def answer(route):
-        posthog_requests[label].append(route.request.url)
-        script = route.request.url.endswith(".js")
-        route.fulfill(status=200, content_type="application/javascript" if script else "application/json", body="/* stub */" if script else "{}")
+        req = route.request
+        try:
+            body = req.post_data_buffer or b""
+        except Exception:
+            body = b""
+        if body[:2] == b"\x1f\x8b":
+            body = gzip.decompress(body)
+        posthog_requests[label].append({"url": req.url, "frame": req.frame.url, "body": body.decode("utf-8", "replace")})
+        if req.url.endswith(".js"):
+            route.fulfill(status=200, content_type="application/javascript", body="/* stub */")
+        elif "/flags/" in req.url or "/decide/" in req.url or "/array/" in req.url:
+            route.fulfill(status=200, content_type="application/json", body=json.dumps(FLAGS))
+        else:
+            route.fulfill(status=200, content_type="application/json", body='{"status": 1}')
     context.route(re.compile(r"https://[^/]*posthog\.com/.*"), answer)
 
 
@@ -81,8 +102,14 @@ def wait_game(frame_owner, timeout=30000):
 os.makedirs(OUT, exist_ok=True)
 with sync_playwright() as pw:
     b = pw.chromium.launch()
-    ctx = b.new_context(viewport={"width": 1500, "height": 950})
+    # posthog-js ignores browsers that call themselves headless (it takes them for bots), so this one gives an ordinary user agent
+    ctx = b.new_context(viewport={"width": 1500, "height": 950}, user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36")
     stub_posthog(ctx, "admin")
+    # posthog-js also looks at navigator.webdriver and the client-hint brands, where headless Chromium gives itself away
+    ctx.add_init_script(
+        "Object.defineProperty(navigator, 'webdriver', { get: () => false });"
+        "Object.defineProperty(navigator, 'userAgentData', { get: () => ({ brands: [{ brand: 'Google Chrome', version: '130' }], mobile: false, platform: 'macOS' }) });"
+    )
     page = ctx.new_page()
     watch(page, "admin")
 
@@ -153,7 +180,8 @@ with sync_playwright() as pw:
         page.wait_for_timeout(300)
     page.wait_for_timeout(1500)
     assert frame.evaluate("typeof window.posthog") == "undefined", "PostHog's script was loaded by the preview"
-    assert posthog_requests["admin"] == [], f"the preview talked to PostHog: {posthog_requests['admin']}"
+    from_games = [r["url"] for r in posthog_requests["admin"] if "/g/" in r["frame"]]
+    assert from_games == [], f"the preview talked to PostHog: {from_games}"
     print("preview sends nothing to PostHog")
 
     # 6. the conversation survives a reload
@@ -223,7 +251,22 @@ with sync_playwright() as pw:
     pp.screenshot(path=f"{OUT}/admin-7-prospect.png")
     print("prospect view with the new password OK")
 
-    # 11. scores are empty, then delete the game
+    # 11. the admin reports how it is used: events and a session replay, as the signed-in person, and not one secret in any of it
+    page.wait_for_timeout(5000)  # PostHog sends in batches
+    sent = [r for r in posthog_requests["admin"] if "/g/" not in r["frame"]]
+    events = [r for r in sent if re.search(r"/(e|i/v0/e|batch)/", r["url"])]
+    replays = [r for r in sent if "/s/" in r["url"]]
+    assert events, f"the admin sent no events: {[r['url'] for r in sent]}; page problems: {problems}"
+    assert replays, f"the admin sent no session replay: {[r['url'] for r in sent]}"
+    everything = "\n".join(r["body"] for r in sent)
+    assert "e2e@posthog.com" in everything, "events are not tied to the signed-in person"
+    assert "survivors-admin" in everything, "events do not say they come from the admin app"
+    assert "$snapshot_data" in "\n".join(r["body"] for r in replays), "the replay carries no recording"
+    for secret in (KEY, password, fresh):
+        assert secret not in everything, f"a secret reached PostHog: {secret[:8]}..."
+    print(f"admin analytics OK: {len(events)} event requests, {len(replays)} replay requests, no secrets")
+
+    # 12. scores are empty, then delete the game
     page.get_by_role("tab", name="Scores").click()
     expect(page.get_by_text("No scores yet")).to_be_visible()
     page.get_by_role("tab", name="Game").click()

@@ -138,7 +138,7 @@ describe('finishing a sign-in', () => {
     expect(JSON.stringify(payload(session.split(';')[0]))).not.toContain('pha_'); // the PostHog token is not kept
 
     const me = await call('/api/me', { headers: { Cookie: jar(res) } });
-    expect(await me.json()).toEqual({ email: 'jane@posthog.com', name: 'Jane Doe' });
+    expect(await me.json()).toMatchObject({ email: 'jane@posthog.com', name: 'Jane Doe' });
   });
 
   it('accepts any capitalisation of the address', async () => {
@@ -262,7 +262,7 @@ describe('local development sign-in', () => {
     expect(res.headers.get('Location')).toBe('/admin/x');
     expect(cookieNamed(res, 'session')).not.toMatch(/Secure/); // plain http on localhost
     const me = await app.fetch(new Request('http://localhost:8787/api/me', { headers: { Cookie: jar(res) } }), env);
-    expect(await me.json()).toEqual({ email: 'dev@posthog.com', name: 'dev@posthog.com' });
+    expect(await me.json()).toEqual({ email: 'dev@posthog.com', name: 'dev@posthog.com', analytics: null }); // a developer's own use is not analytics
   });
 
   it('does nothing anywhere else, even if it is configured by mistake: it goes to PostHog as usual', async () => {

@@ -69,7 +69,7 @@ export function SettingsDialog({ open, onOpenChange }: { open: boolean; onOpenCh
               </SelectContent>
             </Select>
           </div>
-          <div className="space-y-2">
+          <div className="ph-no-capture space-y-2">
             <Label htmlFor="apikey">API key</Label>
             <Input
               id="apikey"
