@@ -38,6 +38,12 @@ function errorText(e: Error): { text: string; needsKey: boolean } {
     const body = JSON.parse(e.message) as { error?: string; message?: string };
     return { text: body.message ?? body.error ?? e.message, needsKey: body.error === 'missing_key' };
   } catch {
+    // The connection dropped (each browser words it differently): say what happened and what was kept.
+    if (/network ?error|failed to fetch|load failed|network connection was lost/i.test(e.message))
+      return {
+        text: 'The connection to the server dropped before the reply finished. Whatever the assistant already changed in the game is kept. Send your message again to carry on.',
+        needsKey: false,
+      };
     return { text: e.message, needsKey: false };
   }
 }
@@ -96,6 +102,28 @@ function AttachButton() {
       <ImageIcon />
       <span className="sr-only">Attach an image</span>
     </Button>
+  );
+}
+
+/** Is the reply's text arriving right now? Then the text itself shows the assistant is working. */
+function writing(messages: UIMessage[]) {
+  const last = messages.at(-1);
+  const part = last?.role === 'assistant' ? last.parts.at(-1) : undefined;
+  return part?.type === 'text' && part.state === 'streaming';
+}
+
+/** Shown whenever a reply is underway but nothing new is on screen: the model thinking (its reasoning isn't shown) or between steps. */
+function Working() {
+  const [secs, setSecs] = useState(0);
+  useEffect(() => {
+    const started = Date.now();
+    const t = setInterval(() => setSecs(Math.floor((Date.now() - started) / 1000)), 1000);
+    return () => clearInterval(t);
+  }, []);
+  return (
+    <p className="animate-pulse text-muted-foreground text-sm" data-testid="chat-working">
+      Working...{secs >= 5 && ` ${secs}s`}
+    </p>
   );
 }
 
@@ -196,7 +224,7 @@ function ChatInner({ gameId, gameName, domain, onChanged, initial }: Props & { i
               </Message>
             ))
           )}
-          {busy && messages.at(-1)?.role === 'user' && <p className="text-muted-foreground text-sm">Thinking...</p>}
+          {busy && !writing(messages) && <Working />}
         </ConversationContent>
         <ConversationScrollButton />
       </Conversation>
@@ -233,14 +261,21 @@ function ChatInner({ gameId, gameName, domain, onChanged, initial }: Props & { i
           maxFileSize={1_500_000}
           onError={(e) => toast.error(e.code === 'max_file_size' ? 'That image is over 1.5 MB' : e.message)}
           onSubmit={({ text, files }) => {
-            if (!text.trim() && files.length === 0) return;
+            if (busy || (!text.trim() && files.length === 0)) return;
             if (!llm.apiKey) return setSettingsOpen(true);
             send(text, files);
           }}
         >
           <Attachments />
           <PromptInputBody>
-            <PromptInputTextarea placeholder="Tell the assistant what to do..." data-testid="chat-input" />
+            <PromptInputTextarea
+              placeholder={busy ? 'The assistant is working. Type your next message, or stop it.' : 'Tell the assistant what to do...'}
+              // One reply at a time: sending now would cut off the one underway. Enter waits; the draft stays.
+              onKeyDown={(e) => {
+                if (busy && e.key === 'Enter' && !e.shiftKey) e.preventDefault();
+              }}
+              data-testid="chat-input"
+            />
           </PromptInputBody>
           <PromptInputFooter>
             <PromptInputTools>
