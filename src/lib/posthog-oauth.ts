@@ -20,6 +20,7 @@ export const clientMetadata = (origin: string) => ({
   client_id: clientId(origin),
   client_name: 'Survivors: PostHog prospect games',
   client_uri: `${origin}/`,
+  logo_uri: `${origin}/favicon.png`, // shown on PostHog's consent screen
   redirect_uris: [redirectUri(origin)],
   grant_types: ['authorization_code'],
   response_types: ['code'],

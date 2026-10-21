@@ -53,6 +53,7 @@ describe('our PostHog client identity', () => {
     expect(res.headers.get('Cache-Control')).toBe('public, max-age=300');
     expect(doc).toMatchObject({
       client_id: `${ORIGIN}/oauth/client.json`,
+      logo_uri: `${ORIGIN}/favicon.png`,
       redirect_uris: [`${ORIGIN}/oauth/callback`],
       token_endpoint_auth_method: 'none',
       grant_types: ['authorization_code'],
