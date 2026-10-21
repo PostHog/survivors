@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Bug Survivors: a free browser game from PostHog</title>
+<meta name="description" content="Play Bug Survivors free in your browser. Squash waves of bugs with PostHog product weapons as a hedgehog and beat the Legacy Monolith. No download, no sign-up." data-seo>
+<meta name="robots" content="index, follow, max-image-preview:large" data-seo>
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://survivors.posthog.com/" data-seo>
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website" data-seo>
+<meta property="og:site_name" content="PostHog" data-seo>
+<meta property="og:locale" content="en_US" data-seo>
+<meta property="og:url" content="https://survivors.posthog.com/" data-seo>
+<meta property="og:title" content="Bug Survivors: a free browser game from PostHog" data-seo>
+<meta property="og:description" content="Play Bug Survivors free in your browser. Squash waves of bugs with PostHog product weapons as a hedgehog and beat the Legacy Monolith. No download, no sign-up." data-seo>
+<meta property="og:image" content="https://survivors.posthog.com/og.png" data-seo>
+<meta property="og:image:type" content="image/png" data-seo>
+<meta property="og:image:width" content="1200" data-seo>
+<meta property="og:image:height" content="630" data-seo>
+<meta property="og:image:alt" content="Bug Survivors gameplay: a hedgehog in a red car surrounded by a swarm of bugs, with a ring of purple projectiles and the Legacy Monolith boss bar at the bottom." data-seo>
+<meta name="twitter:card" content="summary_large_image" data-seo>
+<meta name="twitter:site" content="@PostHog" data-seo>
+<meta name="twitter:title" content="Bug Survivors: a free browser game from PostHog" data-seo>
+<meta name="twitter:description" content="Play Bug Survivors free in your browser. Squash waves of bugs with PostHog product weapons as a hedgehog and beat the Legacy Monolith. No download, no sign-up." data-seo>
+<meta name="twitter:image" content="https://survivors.posthog.com/og.png" data-seo>
+<meta name="twitter:image:alt" content="Bug Survivors gameplay: a hedgehog in a red car surrounded by a swarm of bugs, with a ring of purple projectiles and the Legacy Monolith boss bar at the bottom." data-seo>
+<script type="application/ld+json" data-seo>{"@context":"https://schema.org","@type":"VideoGame","name":"Bug Survivors","description":"Play Bug Survivors free in your browser. Squash waves of bugs with PostHog product weapons as a hedgehog and beat the Legacy Monolith. No download, no sign-up.","url":"https://survivors.posthog.com/","image":"https://survivors.posthog.com/og.png","applicationCategory":"Game","genre":["Arcade","Survival","Roguelite"],"gamePlatform":"Web browser","operatingSystem":"Any","playMode":"SinglePlayer","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"PostHog","url":"https://posthog.com"},"author":{"@type":"Organization","name":"PostHog","url":"https://posthog.com"}}</script>
+<script type="application/ld+json" data-seo>{"@context":"https://schema.org","@type":"Organization","name":"PostHog","url":"https://posthog.com","logo":"https://posthog.com/brand/posthog-logo-stacked.png","sameAs":["https://twitter.com/PostHog","https://github.com/PostHog","https://www.linkedin.com/company/posthog"],"address":{"@type":"PostalAddress","streetAddress":"2261 Market Street #4008","addressLocality":"San Francisco","addressRegion":"CA","postalCode":"94114","addressCountry":"US"}}</script>
+<script type="application/ld+json" data-seo>{"@context":"https://schema.org","@type":"WebSite","name":"Bug Survivors","url":"https://survivors.posthog.com/","publisher":{"@type":"Organization","name":"PostHog","url":"https://posthog.com"},"inLanguage":"en"}</script>
+<style>
+  html, body { margin: 0; height: 100%; background: #000; overflow: hidden; overscroll-behavior: none; }
+  body { touch-action: none; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+  #game { width: 100vw; height: 100vh; height: 100dvh; display: flex; align-items: center; justify-content: center; }
+  .seo { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+  canvas { image-rendering: pixelated; image-rendering: crisp-edges; touch-action: none; }
+</style>
+</head>
+<body>
+<div id="game"></div>
+<main class="seo" data-seo>
+  <h1>Bug Survivors</h1>
+  <p>Bug Survivors is a free arcade survival game from PostHog that runs in your browser. You play a hedgehog in an arena while bugs pour in from every side. You only move: your weapons fire on their own, and each one is a PostHog product, like Product Analytics, Session Replay, Feature Flags and Experiments.</p>
+  <p>Squash bugs to collect XP gems, pick a new weapon or upgrade each time you level up, and survive until the Legacy Monolith boss shows up at 3:30. Beat it and you can cash out your gold or keep climbing the wave ladder against tougher versions of the boss.</p>
+  <h2>How to play</h2>
+  <ul>
+    <li>Move with WASD or the arrow keys, or drag on a touch screen.</li>
+    <li>Pick level-up cards with 1, 2 and 3. Reroll with R, skip with X, banish with B, pause with Esc.</li>
+    <li>Combine a maxed weapon, its partner passive and a chest to evolve it.</li>
+  </ul>
+  <p><a href="/guide">Read the complete guide</a> for every weapon, bug, boss and the real numbers behind them.</p>
+  <noscript>Bug Survivors needs JavaScript to run. Turn it on in your browser and reload the page.</noscript>
+</main>
+<script type="module" src="./src/main.ts"></script>
+</body>
+</html>

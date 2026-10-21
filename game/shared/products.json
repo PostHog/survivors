@@ -1,0 +1,12 @@
+{
+  "product_analytics": { "name": "Product Analytics", "line": "Funnels, trends and retention for every event", "color": "#0058f8" },
+  "web_analytics":     { "name": "Web Analytics", "line": "Simple, privacy-friendly traffic stats", "color": "#00b800" },
+  "session_replay":    { "name": "Session Replay", "line": "Watch real users hit the bug", "color": "#f8b800" },
+  "feature_flags":     { "name": "Feature Flags", "line": "Ship safely, roll out to anyone", "color": "#00b800" },
+  "experiments":       { "name": "Experiments", "line": "A/B test with real statistics", "color": "#9878f8" },
+  "surveys":           { "name": "Surveys", "line": "Ask users what they think, in-app", "color": "#f85898" },
+  "error_tracking":    { "name": "Error Tracking", "line": "Catch exceptions and see who they hit", "color": "#f83800" },
+  "data_warehouse":    { "name": "Data Warehouse", "line": "Query product data next to Stripe and your CRM", "color": "#3cbcfc" },
+  "llm_analytics":     { "name": "LLM Analytics", "line": "Trace cost, latency and quality of AI features", "color": "#d800cc" },
+  "data_pipelines":    { "name": "Data Pipelines", "line": "Send events anywhere in real time", "color": "#e45c10" }
+}

@@ -1,0 +1,34 @@
+// Prospect games on survivors.posthog.com: one Worker, one D1 database, the game as static assets.
+// Local: `npm run build && npm run db:migrate && npm run dev`. Deploy steps are in README.md.
+{
+  "name": "survivors",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-01",
+  "workers_dev": false, // only the custom domain: the sign-in client identity is tied to one origin
+  "preview_urls": false,
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    // The public root game, its files and robots.txt are served straight from the edge, without waking the Worker.
+    // Only these dynamic paths run the Worker first: games (who may see one), leaderboards, sign-in, the admin app's page, and the API.
+    // The admin app's own files (/_admin/assets/...) are plain static assets: they hold no secrets, the API is what is protected.
+    "run_worker_first": ["/g/*", "/mp/*", "/oauth/*", "/admin", "/admin/*", "/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "survivors",
+      "database_id": "REPLACE_WITH_ID_FROM_wrangler_d1_create",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "ratelimits": [
+    { "name": "UNLOCK_LIMIT", "namespace_id": "1001", "simple": { "limit": 5, "period": 60 } },
+    { "name": "LB_LIMIT", "namespace_id": "1002", "simple": { "limit": 6, "period": 60 } },
+    { "name": "CHAT_LIMIT", "namespace_id": "1003", "simple": { "limit": 20, "period": 60 } }
+  ],
+  // A Custom Domain: Cloudflare creates the DNS record and certificate. It needs the posthog.com zone in the same Cloudflare account
+  // as this Worker, and no existing DNS record for survivors.posthog.com.
+  "routes": [{ "pattern": "survivors.posthog.com", "custom_domain": true, "zone_name": "posthog.com" }],
+  "observability": { "enabled": true }
+}

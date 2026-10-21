@@ -1,0 +1,16 @@
+size 15x8
+concept PostHog logomark, tiny (the "powered by" line)
+legend
+  b #1d4aff blue
+  o #f54e00 orange
+  y #f9bd2b yellow
+  h #eeefe9 hedgehog head
+frame
+bb.oo.yy.......
+bbboooyyy......
+bbboooyyy......
+.bb.oo.yy.hh...
+b.bo.oy.y.hhh..
+bb.oo.yy..hhhh.
+bbboooyyy.h.hhh
+bbboooyyy.hhhhh

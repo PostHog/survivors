@@ -1,0 +1,46 @@
+size 16x16
+base ninja-adventure/Ninja Adventure - Asset Pack/Items/Treasure/LittleTreasureChest.png 0,0,16,16;0,0,16,16
+concept gold-trimmed wooden chest, frame 2 glints (Ninja Adventure LittleTreasureChest)
+legend
+  a #141b1b
+  b #4a2e24 dark wood
+  c #9a5c34 wood
+  d #e8a02a gold trim
+  e #c9844c wood light
+  f #ffe18d gold light
+  F #fffbe0 glint
+  D #ffd24a gold trim lit
+frame
+................
+................
+................
+................
+..aaaaaaaaaaaa..
+..acccccccccba..
+..acfeeeeeccba..
+.aaceeeeeeccbaa.
+.adccbbbbbbcbca.
+.afbbbfdddbbbca.
+.afddddaaddddda.
+.aabbbddddbbbaa.
+..accbbbbbbbba..
+..acccccccccba..
+..aaaaaaaaaaaa..
+................
+frame
+................
+................
+................
+................
+..aaaaaaaaaaaa..
+..acccccccccba..
+..acFeeeeeccba..
+.aaceeeeeeccbaa.
+.aDccbbbbbbcbca.
+.aFbbbFDDDbbbca.
+.aFDDDDaaDDDDDa.
+.aabbbDDDDbbbaa.
+..accbbbbbbbba..
+..acccccccccba..
+..aaaaaaaaaaaa..
+................

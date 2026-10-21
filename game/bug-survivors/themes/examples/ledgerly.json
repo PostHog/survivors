@@ -1,0 +1,30 @@
+{
+  "prospect": { "name": "Ledgerly", "short": "Ledgerly", "domain": "ledgerly.io" },
+  "title": "Ledgerly: Invoice Defense",
+  "tagline": "Made for Ledgerly by PostHog",
+  "palette": { "primary": "#0a7d5a", "secondary": "#0b1f33", "accent": "#ffd166" },
+  "products": ["product_analytics", "session_replay", "surveys", "feature_flags", "experiments"],
+  "music": { "mood": "bright, bouncy, optimistic, a little jazzy", "bpm": 132 },
+  "text": {
+    "win": "Every freelancer got paid on time. The ledger is balanced and the churn beetle is history.",
+    "lose": "The bugs balanced the books this time. Take a breath and send the invoice again.",
+    "credits": "With thanks to the Ledgerly team, from PostHog"
+  },
+  "game": {
+    "difficulty": "easy",
+    "starting_product": "product_analytics",
+    "arena": { "name": "Onboarding Funnel", "sprite_prompt": "clean green ledger paper with faint grid lines, seen from above" },
+    "enemies": [
+      { "name": "Bank Link Bug", "pain": "Users bail at 'connect your bank'", "sprite_prompt": "a small green fly holding a tiny broken chain link" },
+      { "name": "Big Bang Rollout", "pain": "Ship to everyone or no one", "sprite_prompt": "a round navy beetle with a lit fuse on its back" },
+      { "name": "First Invoice Fog", "pain": "Why do they leave after invoice #1?", "sprite_prompt": "a fluffy grey moth made of fog with question-mark antennae" }
+    ],
+    "boss": { "name": "The Churn Beetle", "taunt": "One invoice and they're gone. Heh.", "sprite_prompt": "a giant dark green beetle with a spinning revolving-door shell" },
+    "product_lines": {
+      "product_analytics": "Find the step where freelancers bail",
+      "session_replay": "Watch the bank-connect step live",
+      "surveys": "Ask churners why, in their words",
+      "feature_flags": "Roll out gradually, keep compliance calm"
+    }
+  }
+}

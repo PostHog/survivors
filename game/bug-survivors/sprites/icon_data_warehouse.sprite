@@ -1,0 +1,25 @@
+size 16x16
+concept Data Warehouse: a database cylinder
+legend
+  k #141b1b
+  C #a4e4fc
+  w #fcfcfc
+  B #3cbcfc
+  n #0058f8
+frame
+................
+....kkkkkkkk....
+..kkCCCCCCCCkk..
+.kCCwwCCCCCCCCk.
+.kCCCCCCCCCCCCk.
+.knCCCCCCCCCCnk.
+.kBnnCCCCCCnnBk.
+.kwBBnnnnnnBBBk.
+.knBBBBBBBBBBnk.
+.kBnnBBBBBBnnBk.
+.kwBBnnnnnnBBBk.
+.knBBBBBBBBBBnk.
+.kBnnBBBBBBnnBk.
+.kkBBnnnnnnBBkk.
+...kkkkkkkkkk...
+................

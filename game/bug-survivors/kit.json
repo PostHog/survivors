@@ -1,0 +1,30 @@
+{
+  "id": "bug-survivors",
+  "name": "Bug Survivors",
+  "genre": "survivors-like (Vampire Survivors, Brotato)",
+  "buyer": [
+    "engineering",
+    "engineer",
+    "developers",
+    "developer",
+    "cto",
+    "devops"
+  ],
+  "summary": "A PostHog hoggie survives 3:30 of swarming bugs named after the prospect's pain points, picks PostHog products as auto-firing weapons on level-up and beats a boss; then cashes out or climbs the wave ladder (every boss a release: 2.0, 3.0...) with PostHog tools, releases, powerups, hoggies to unlock and crests to earn.",
+  "products": [
+    "session_replay",
+    "feature_flags",
+    "experiments",
+    "error_tracking",
+    "product_analytics",
+    "surveys"
+  ],
+  "tests": {
+    "bot_patch": {
+      "game.difficulty": "easy"
+    },
+    "bot_expect": "win",
+    "bot_speed": 6,
+    "bot_timeout_s": 260
+  }
+}

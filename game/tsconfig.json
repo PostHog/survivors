@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": [
+      "ES2022",
+      "DOM"
+    ],
+    "strict": true,
+    "noImplicitAny": false,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "paths": {
+      "@shared/*": [
+        "./shared/src/*"
+      ]
+    },
+    "types": []
+  },
+  "include": [
+    "shared/src/**/*.ts",
+    "bug-survivors/src/**/*.ts"
+  ]
+}

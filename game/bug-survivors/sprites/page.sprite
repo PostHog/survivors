@@ -1,0 +1,25 @@
+size 16x16
+concept Handbook page: paper with lines of text and a folded corner
+legend
+  k #141b1b
+  w #fcfcfc
+  l #bcbcbc
+  g #7c7c7c
+  R #f83800
+frame
+................
+...kkkkkkkk.....
+...kwwwwwwkk....
+...kwwwwwwklk...
+...kwggggwkkkk..
+...kwwwwwwwwwk..
+...kwggggggwwk..
+...kwwwwwwwwwk..
+...kwgggggwwwk..
+...kwwwwwwwwwk..
+...kwggggggwwk..
+...kwwwwwwwwwk..
+...kwRRwwwwlwk..
+...kwRRwwwwwwk..
+...kkkkkkkkkkk..
+................

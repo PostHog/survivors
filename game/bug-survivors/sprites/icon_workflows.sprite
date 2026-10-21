@@ -1,0 +1,25 @@
+size 16x16
+concept Workflows: a flowchart of three steps
+legend
+  k #141b1b
+  a #fca044
+  O #e45c10
+  r #a81000
+  w #fcfcfc
+frame
+................
+.kkkkk....kkkkk.
+.kaaOk....kaaOk.
+.kaOOk....kaOOk.
+.kOOrk....kOOrk.
+.kkkkk....kkkkk.
+..kwk......kwk..
+..kwkkkkkkkkwk..
+..kwwwwwwwwwwk..
+..kkkkkwwkkkkk..
+......kwwk......
+....kkkwwkkk....
+....kaaaaOOk....
+....kaaOOOrk....
+....kaOOOrrk....
+....kkkkkkkk....

@@ -1,0 +1,414 @@
+{
+ "generated_by": "bug-survivors/tools/export_default_art.py: do not edit",
+ "master": [
+  "#000000",
+  "#7c7c7c",
+  "#bcbcbc",
+  "#fcfcfc",
+  "#0000bc",
+  "#0058f8",
+  "#3cbcfc",
+  "#a4e4fc",
+  "#503000",
+  "#6844fc",
+  "#9878f8",
+  "#940084",
+  "#d800cc",
+  "#f878f8",
+  "#a80020",
+  "#e40058",
+  "#f85898",
+  "#a81000",
+  "#f83800",
+  "#f87858",
+  "#f0d0b0",
+  "#e45c10",
+  "#fca044",
+  "#ac7c00",
+  "#f8b800",
+  "#f8d878",
+  "#007800",
+  "#00b800",
+  "#58d854",
+  "#b8f818",
+  "#008888",
+  "#00e8d8",
+  "#004058",
+  "#005800",
+  "#4428bc",
+  "#881400"
+ ],
+ "slots": {
+  "player": {
+   "palette": "master",
+   "grid": "size 24x24\nconcept default player (from art.py)\nlegend\n  b #503000\n  i #f85898\n  k #000000\n  o #ac7c00\n  t #f0d0b0\n  w #fcfcfc\nframe\n........................\n..........k..k..........\n.......k.kbkkbk.k.......\n......kbkbbbbbbkbk......\n.....kbbbbobbbobbbk.....\n....kbbobbbbbbbbobbk....\n...kbbbbbbbobbbbbbbbk...\n..kbobbbbbbbbbbbbbttk...\n..kbbbbbbobbbbbbbttttk..\n.kbbbbbbbbbbbbbbtttttk..\n.kbbbobbbbbbobbttwktttk.\nkbbbbbbbbbbbbbbtttkkttk.\nkbobbbbbbbbbbbtttttttttk\nkbbbbbbobbbbbttttttttkkk\n.kbbbbbbbbbbtttttttttk..\n.kbbbbbbbbbtttiiitttk...\n..kbbbbbbbbttttttttk....\n...kkbbbbbbtttttttk.....\n.....kkkbbbbtttttk......\n........kkkkkkkkk.......\n......kttk...kttk.......\n......kkkk...kkkk.......\n........................\n........................\nframe\n........................\n........................\n..........k..k..........\n.......k.kbkkbk.k.......\n......kbkbbbbbbkbk......\n.....kbbbbobbbobbbk.....\n....kbbobbbbbbbbobbk....\n...kbbbbbbbobbbbbbbbk...\n..kbobbbbbbbbbbbbbttk...\n..kbbbbbbobbbbbbbttttk..\n.kbbbbbbbbbbbbbbtttttk..\n.kbbbobbbbbbobbttwktttk.\nkbbbbbbbbbbbbbbtttkkttk.\nkbobbbbbbbbbbbtttttttttk\nkbbbbbbobbbbbttttttttkkk\n.kbbbbbbbbbbtttttttttk..\n.kbbbbbbbbbtttiiitttk...\n..kbbbbbbbbttttttttk....\n...kkbbbbbbtttttttk.....\n.....kkkbbbbtttttk......\n.....kttk.....kttk......\n.....kkkk.....kkkk......\n........................\n........................\nframe\n........................\n..........k..k..........\n.......k.kbkkbk.k.......\n......kbkbbbbbbkbk......\n.....kbbbbobbbobbbk.....\n....kbbobbbbbbbbobbk....\n...kbbbbbbbobbbbbbbbk...\n..kbobbbbbbbbbbbbbttk...\n..kbbbbbbobbbbbbbttttk..\n.kbbbbbbbbbbbbbbtttttk..\n.kbbbobbbbbbobbttwktttk.\nkbbbbbbbbbbbbbbtttkkttk.\nkbobbbbbbbbbbbtttttttttk\nkbbbbbbobbbbbttttttttkkk\n.kbbbbbbbbbbtttttttttk..\n.kbbbbbbbbbtttiiitttk...\n..kbbbbbbbbttttttttk....\n...kkbbbbbbtttttttk.....\n.....kkkbbbbtttttk......\n........kkkkkkkkk.......\n......kttk...kttk.......\n......kkkk...kkkk.......\n........................\n........................\nframe\n........................\n........................\n..........k..k..........\n.......k.kbkkbk.k.......\n......kbkbbbbbbkbk......\n.....kbbbbobbbobbbk.....\n....kbbobbbbbbbbobbk....\n...kbbbbbbbobbbbbbbbk...\n..kbobbbbbbbbbbbbbttk...\n..kbbbbbbobbbbbbbttttk..\n.kbbbbbbbbbbbbbbtttttk..\n.kbbbobbbbbbobbttwktttk.\nkbbbbbbbbbbbbbbtttkkttk.\nkbobbbbbbbbbbbtttttttttk\nkbbbbbbobbbbbttttttttkkk\n.kbbbbbbbbbbtttttttttk..\n.kbbbbbbbbbtttiiitttk...\n..kbbbbbbbbttttttttk....\n...kkbbbbbbtttttttk.....\n.....kkkbbbbtttttk......\n.......kttk.kttk........\n.......kkkk.kkkk........\n........................\n........................\n",
+   "w": 24,
+   "h": 24,
+   "frames": 4
+  },
+  "enemy_1": {
+   "palette": "brand",
+   "grid": "size 16x16\nbase ninja-adventure/Ninja Adventure - Asset Pack/Actor/Monster/ButterflyBlue/SpriteSheet.png 0,4\nconcept fly: glassy wings, accent body, primary abdomen (Ninja Adventure ButterflyBlue)\nlegend\n  a #141b1b\n  b #4f8fa8 wing shade\n  c #a8e4f4 glassy wing\n  d @3 body (accent)\n  p @1l abdomen (primary)\n  q @1 abdomen shade\nframe\n................\n.......aa.......\n......adda......\n.....aaddaa.....\n...aabaddabaa...\n..abbcaddacbba..\n.abcccaddacccba.\nabcbbcaddacbbcba\nabbaabcddcbaabba\naba..apaapa..aba\n.a...appppa...a.\n......appa......\n.....appqqa.....\n....appaaqqa....\n....apa..aqa....\n.....a....a.....\nframe\n................\n................\n.......aa.......\n......adda......\n.....aaddaa.....\n..aaabaddabaaa..\n.abbbcaddacbbba.\nabccccaddaccccba\nabbbbcaddacbbbba\nabaaabcddcbaaaba\n.a...apaapa...a.\n.....appppa.....\n.....appppa.....\n....appaaqqa....\n....apa..aqa....\n.....a....a.....\n",
+   "w": 16,
+   "h": 16,
+   "frames": 2
+  },
+  "enemy_2": {
+   "palette": "brand",
+   "grid": "size 16x16\nbase ninja-adventure/Ninja Adventure - Asset Pack/Actor/Monster/Mollusc/Mollusc.png 0,4\nconcept round beetle with a primary-coloured dome shell (Ninja Adventure Mollusc)\nlegend\n  a #141b1b\n  b @1l shell (primary)\n  c @5 shell band highlight\n  d #5b4a55 legs\n  e #8b7a86 leg highlight\n  f #ffffff face\n  h @5l shine\n  u @1 shell shade\nframe\n................\n......aaaa......\n....aahhccaa....\n...ahcbbbbcca...\n..abccccccccba..\n.acbbbbbbbbbbca.\n.accbbbbbbbbcca.\nabbccccccccccbba\nauuubbbbbbbbuuua\nauuubaaaaaabuuua\n.auubaffffabuua.\n..aaddaaaaddaa..\n.adddaddddaddda.\naeedaaaeeaaadeea\naeea..aeea..aeea\n.aa....aa....aa.\nframe\n................\n......aaaa......\n....aahhccaa....\n...ahcbbbbcca...\n..abccccccccba..\n.acbbbbbbbbbbca.\n.accbbbbbbbbcca.\nabbccccccccccbba\nauuubbbbbbbbuuua\nauuubaaaaaabuuua\n.auubaffffabuua.\naedddaaeeaadddea\naeedaaaeeaaadeea\n.aaa...aa...aaa.\n................\n................\n",
+   "w": 16,
+   "h": 16,
+   "frames": 2
+  },
+  "enemy_3": {
+   "palette": "brand",
+   "grid": "size 16x16\nbase ninja-adventure/Ninja Adventure - Asset Pack/Actor/Monster/SpiderYellow/SpriteSheet.png 0,4\nconcept chunky spider: accent body, primary legs (Ninja Adventure SpiderYellow)\nlegend\n  a #141b1b\n  b @1 fangs / leg shade\n  c @1l legs (primary)\n  d @3 body (accent)\n  e @3l body highlight\nframe\n................\n................\n..aaa......aaa..\n.abbba....abbba.\nabbbbbaaaabbbbba\nababbbddddbbbaba\naa.aadeededaa.aa\n....adeeadda....\n..aaaddaaddaaa..\n.acccddddddccca.\naccccaddddacccca\naccaa.aaaa.aacca\nacca........acca\n.acca......acca.\n..aa........aa..\n................\nframe\n................\n..aaa...........\n.abbba.....aaa..\nabbbbba...abbba.\nababbbba.abbbbba\naa.abbaaaabbbaba\n....abddddbbaaaa\n....adeededa....\n..aaadeeaddaa...\n.accaddaaddaca..\naccccddddddacca.\naccacaddddacccca\naccaa.aaaaaaccca\n.acca.......acca\n..aa.......acca.\n............aa..\n",
+   "w": 16,
+   "h": 16,
+   "frames": 2
+  },
+  "boss": {
+   "palette": "brand",
+   "grid": "size 64x64\nbase ninja-adventure/Ninja Adventure - Asset Pack/Actor/Boss/DemonCyclop/Idle.png 0,0,50,50;50,0,50,50;100,0,50,50;150,0,50,50\nconcept monolith bug (Ninja Adventure DemonCyclop), primary ramp, server-rack plates with blinking LEDs\nlegend\n  a #141b1b\n  b @1 body shade / legs\n  c @1l body (primary)\n  d @5 horn highlight\n  e #c8966b eye ring\n  f #fce2ca eye white\n  r #2c2a35 rack plate\n  s #4a4758 rack plate edge\n  g #58d854 status LED green\n  y #f8b800 status LED amber\nframe\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n........................aaaa.......aaaaa........................\n......................aadddcaa...aacdddda.......................\n.....................acddddcdda.addcddddca......................\n....................addcdddcdddadddcdddcdda.....................\n...................addddcdddcddaddcdddcdddda....................\n...................acddddccaaaa.aaaaccddddca....................\n..................addccccca.........acccccdda...................\n..................adddddddca.......acddddddda...................\n.................accdddddcccaa...aacccdddddcca..................\n................acccccccccccccaaaccccccccccccca.................\n................accccccccccccccccccccccccccccca.................\n...............abcssssssscccddcccddccccsssssssba................\n...............abcsrgrrysccbdddddddbcccsrgrrysba................\n...............abcsssssssccbdddddddbcccsssssssba................\n...............abcsrrgrrscccbbdddbbccccsrrgrrsba................\n...............abcssssssscceffbbbffecccsssssssba................\n...............abccccccccceffdaaadffecccccccccba................\n...............abbccccccceeffdaaadffeecccccccbba................\n...............abbccccccceefffdddfffeecccccccbba................\n..............ababbccccccceefffffffeecccccccbbaba...............\n..............abbbbbccccccceeefffeeecccccccbbbbba...............\n.............abbbbbbbcccccccceeeeeccccccccbbbbbbba..............\n.............abbbbabbbcccccccccccccccccccbbbabbbba..............\n.............abbbbbabbbccccccbbbbbccccccbbbabbbbba..............\n.............abbbba.abbbbcccbcccccbcccbbbba.abbbba..............\n.............abbbba..abbbbbcccccccccbbbbba..abbbba..............\n..............abda..abbbabbbbbbbbbbbbbabbba..adba...............\n..............ada..abbbbbabbbbbbbbbbbabbbbba..ada...............\n...............a...abbbbbbaaabbbbbaaabbbbbba...a................\n....................abbbba...aaaaa...abbbba.....................\n....................abbbba............abbba.....................\n...................abbbba.............abbbba....................\n...................adbda...............adbda....................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\nframe\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n........................aaaa.......aaaaa........................\n......................aadddcaa...aacdddda.......................\n.....................acddddcdda.addcddddca......................\n....................addcdddcdddadddcdddcdda.....................\n...................addddcdddcddaddcdddcdddda....................\n...................acddddccaaaa.aaaaccddddca....................\n..................addccccca.........acccccdda...................\n..................adddddddca.......acddddddda...................\n.................accdddddcccaa...aacccdddddcca..................\n................acccccccccccccaaaccccccccccccca.................\n................accccccccccccccccccccccccccccca.................\n...............abcssssssscccddcccddccccsssssssba................\n...............abcsrrgrgsccbdddddddbcccsrrgrgsba................\n...............abcsssssssccbdddddddbcccsssssssba................\n...............abcsyrrrgscccbbdddbbccccsyrrrgsba................\n...............abcssssssscceffbbbffecccsssssssba................\n...............abccccccccceffdaaadffecccccccccba................\n...............abbccccccceeffdaaadffeecccccccbba................\n...............abbccccccceefffdddfffeecccccccbba................\n..............ababbccccccceefffffffeecccccccbbaba...............\n.............abbbbbbccccccceeefffeeecccccccbbbbbba..............\n.............abbbbbbbcccccccceeeeeccccccccbbbbbbba..............\n............abbbbbabbbcccccccccccccccccccbbbabbbbba.............\n............abbbba.aabbccccccbbbbbccccccbbaa.abbbba.............\n............abbbba...abbbcccbcccccbcccbbba...abbbba.............\n.............abda...abbbabbcccccccccbbabbba...adba..............\n.............ada...abbbbbabbbbbbbbbbbabbbbba...ada..............\n..............a....abbbbbbaaabbbbbaaabbbbbba....a...............\n....................abbbba...aaaaa...abbbba.....................\n....................abbbba............abbba.....................\n...................abbbba.............abbbba....................\n...................adbda...............adbda....................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n................................................................\n",
+   "w": 64,
+   "h": 64,
+   "frames": 2
+  },
+  "tile": {
+   "palette": "brand",
+   "grid": "size 32x32\nconcept dark floor plates, dashed brand-tinted bevel (hand-drawn)\nlegend\n  k #0b0a0f plate seam\n  f #16141d floor\n  v @4 bevel (dark primary)\n  s #1f1c29 scuff\nframe\nkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk\nkvfvfvfvfvfvfvffkvfvfvfvfvfvfvff\nkfffffffffffffffkfffffffffffffff\nkvffffffffffffffkvffffffffffffff\nkfffffffffffffffkfffffffffffffff\nkvffffffffffffffkvffffffffffffff\nkfffffffffffffffkfffffffffffffff\nkvffffssffffffffkvffffffffffffff\nkfffffffffffffffkfffffffffffffff\nkvffffffffffffffkvffffffffffffff\nkfffffffffffffffkfffffffffsfffff\nkvffffffffffffffkvffffffffffffff\nkfffffffffffffffkfffffffffffffff\nkvffffffffffffffkvffffffffffffff\nkfffffffffffffffkfffffffffffffff\nkfffffffffffffffkfffffffffffffff\nkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk\nkvfvfvfvfvfvfvffkvfvfvfvfvfvfvff\nkfffffffffffffffkfffffffffffffff\nkvffffffffffffffkvffffffffffffff\nkfffffffffffffffkfffffffffffffff\nkvffffffffffffffkvffffffffffffff\nkffffffffffssfffkfffffffffffffff\nkvffffffffffffffkvffffffffffffff\nkfffffffffffffffkfffffffffffffff\nkvffffffffffffffkvfffsffffffffff\nkfffffffffffffffkfffffffffffffff\nkvffffffffffffffkvffffffffffffff\nkfffffffffffffffkfffffffffffffff\nkvffffffffffffffkvffffffffffffff\nkfffffffffffffffkfffffffffffffff\nkfffffffffffffffkfffffffffffffff\n",
+   "w": 32,
+   "h": 32,
+   "frames": 1
+  },
+  "gem": {
+   "palette": "master",
+   "grid": "size 8x8\nconcept default gem (from art.py)\nlegend\n  B #0058f8\n  C #a4e4fc\n  c #3cbcfc\n  k #000000\n  n #0000bc\n  w #fcfcfc\nframe\n...kk...\n..kCck..\n.kCwcck.\nkCcccBBk\nkccBBBnk\n.kcBBnk.\n..kBnk..\n...kk...\n",
+   "w": 8,
+   "h": 8,
+   "frames": 1
+  },
+  "orb": {
+   "palette": "master",
+   "grid": "size 8x8\nconcept default orb (from art.py)\nlegend\n  O #e45c10\n  Y #f8d878\n  k #000000\n  w #fcfcfc\n  y #f8b800\nframe\n..kkkk..\n.kYYyyk.\nkYwYyyOk\nkYYyyyOk\nkyyyyOOk\nkyyyOOOk\n.kyOOOk.\n..kkkk..\n",
+   "w": 8,
+   "h": 8,
+   "frames": 1
+  },
+  "shot": {
+   "palette": "master",
+   "grid": "size 6x6\nconcept default shot (from art.py)\nlegend\n  V #6844fc\n  k #000000\n  v #9878f8\n  w #fcfcfc\nframe\n.kkkk.\nkvVVVk\nkVwvVk\nkVvvVk\nkVVVVk\n.kkkk.\n",
+   "w": 6,
+   "h": 6,
+   "frames": 1
+  },
+  "homing": {
+   "palette": "master",
+   "grid": "size 8x8\nconcept default homing (from art.py)\nlegend\n  R #f83800\n  k #000000\n  s #f87858\n  w #fcfcfc\nframe\n..kkk...\n.kRRRk..\nkRswRRkk\nkRRRRRsk\nkRRRRRsk\nkRRRRRkk\n.kRRRk..\n..kkk...\n",
+   "w": 8,
+   "h": 8,
+   "frames": 1
+  },
+  "boss_shot": {
+   "palette": "master",
+   "grid": "size 6x6\nconcept default boss_shot (from art.py)\nlegend\n  I #f878f8\n  P #d800cc\n  k #000000\n  p #940084\n  w #fcfcfc\nframe\n.kkkk.\nkPIIPk\nkIwIPk\nkIIPPk\nkPPPpk\n.kkkk.\n",
+   "w": 6,
+   "h": 6,
+   "frames": 1
+  },
+  "flag": {
+   "palette": "master",
+   "grid": "size 12x16\nconcept default flag (from art.py)\nlegend\n  G #00b800\n  e #58d854\n  g #7c7c7c\n  k #000000\n  w #fcfcfc\nframe\nkk..........\nkGkkkkkk....\nkGeeeeeGk...\nkGeweeeeGk..\nkGeeeeeeGk..\nkGeeeeeGk...\nkGkkkkkk....\nkGk.........\nkGk.........\nkGk.........\nkGk.........\nkGk.........\nkGk.........\nkGk.........\nkkkk........\nkggk........\n",
+   "w": 12,
+   "h": 16,
+   "frames": 1
+  },
+  "icon_session_replay": {
+   "palette": "master",
+   "grid": "size 16x16\nconcept default icon_session_replay (from art.py)\nlegend\n  k #000000\n  w #fcfcfc\n  y #f8b800\nframe\n................\n..kkkkkkkkkkkk..\n.kyyyyyyyyyyyyk.\n.kykkkkkkkkkkyk.\n.kykwwkwwkwwkyk.\n.kykkkkkkkkkkyk.\n.kykkkwkkkkkkyk.\n.kykkkwwkkkkkyk.\n.kykkkwwwkkkkyk.\n.kykkkwwkkkkkyk.\n.kykkkwkkkkkkyk.\n.kykkkkkkkkkkyk.\n.kyyyyyyyyyyyyk.\n..kkkkkkkkkkkk..\n....kkkkkkkk....\n................\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "icon_feature_flags": {
+   "palette": "master",
+   "grid": "size 16x16\nconcept default icon_feature_flags (from art.py)\nlegend\n  G #00b800\n  e #58d854\n  g #7c7c7c\n  k #000000\n  w #fcfcfc\nframe\n................\n...kk...........\n...kGkkkkkkkk...\n...kGeeeeeeeGk..\n...kGeweeeeeeGk.\n...kGeeeeeeeeGk.\n...kGeeeeeeeGk..\n...kGkkkkkkkk...\n...kGk..........\n...kGk..........\n...kGk..........\n...kGk..........\n...kGk..........\n..kkkkk.........\n..kgggk.........\n................\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "icon_experiments": {
+   "palette": "master",
+   "grid": "size 16x16\nconcept default icon_experiments (from art.py)\nlegend\n  i #f85898\n  k #000000\n  v #9878f8\n  w #fcfcfc\nframe\n................\n.kkkkkk..kkkkkk.\n.kvvvvk..kiiiik.\n.kvkkvk..kikkik.\n.kvkkvk..kikkik.\n.kvvvvk..kiiiik.\n.kvkkvk..kikkik.\n.kvkkvk..kiiiik.\n.kkkkkk..kkkkkk.\n................\n...kkkkkkkkkk...\n...kwwwwwwwwk...\n...kwkkwkwwwk...\n...kwwwwwwwwk...\n...kkkkkkkkkk...\n................\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "icon_error_tracking": {
+   "palette": "master",
+   "grid": "size 16x16\nconcept default icon_error_tracking (from art.py)\nlegend\n  R #f83800\n  k #000000\n  w #fcfcfc\nframe\n................\n.......kk.......\n......kRRk......\n......kRRk......\n.....kRRRRk.....\n.....kRwwRk.....\n....kRRwwRRk....\n....kRRwwRRk....\n...kRRRwwRRRk...\n...kRRRwwRRRk...\n..kRRRRRRRRRRk..\n..kRRRRwwRRRRk..\n.kRRRRRwwRRRRRk.\n.kRRRRRRRRRRRRk.\n.kkkkkkkkkkkkkk.\n................\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "icon_product_analytics": {
+   "palette": "master",
+   "grid": "size 16x16\nconcept default icon_product_analytics (from art.py)\nlegend\n  B #0058f8\n  C #a4e4fc\n  c #3cbcfc\n  k #000000\nframe\n................\n.kk.............\n.kk.........kk..\n.kk........kCCk.\n.kk........kCCk.\n.kk....kk..kCCk.\n.kk...kBBk.kCCk.\n.kk...kBBk.kCCk.\n.kk.kkkBBk.kCCk.\n.kk.kckBBk.kCCk.\n.kk.kckBBk.kCCk.\n.kk.kckBBk.kCCk.\n.kkkkkkkkkkkkkk.\n.kkkkkkkkkkkkkk.\n................\n................\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "icon_surveys": {
+   "palette": "master",
+   "grid": "size 16x16\nconcept default icon_surveys (from art.py)\nlegend\n  i #f85898\n  k #000000\n  w #fcfcfc\nframe\n................\n..kkkkkkkkkkkk..\n.kiiiiiiiiiiiik.\n.kiwwwwwwwwwwik.\n.kiwkkkkkkkkwik.\n.kiwwwwwwwwwwik.\n.kiwkkkkkwwwwik.\n.kiwwwwwwwwwwik.\n.kiiiiiiiiiiiik.\n..kkkkkiikkkkk..\n......kiik......\n......kik.......\n......kk........\n................\n................\n................\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "icon_speed": {
+   "palette": "master",
+   "grid": "size 16x16\nconcept default icon_speed (from art.py)\nlegend\n  Y #f8d878\n  k #000000\nframe\n................\n........kkkk....\n.......kYYYk....\n......kYYYk.....\n.....kYYYk......\n....kYYYkkkk....\n...kYYYYYYYk....\n...kkkkYYYk.....\n......kYYk......\n.....kYYk.......\n....kYYk........\n....kYk.........\n....kk..........\n................\n................\n................\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "icon_magnet": {
+   "palette": "master",
+   "grid": "size 16x16\nconcept default icon_magnet (from art.py)\nlegend\n  B #0058f8\n  R #f83800\n  k #000000\n  w #fcfcfc\nframe\n................\n...kkkk..kkkk...\n...kwwk..kwwk...\n...kRRk..kBBk...\n...kRRk..kBBk...\n...kRRk..kBBk...\n...kRRkkkkBBk...\n...kRRRRBBBBk...\n....kRRRBBBk....\n.....kkkkkk.....\n................\n................\n................\n................\n................\n................\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "icon_maxhp": {
+   "palette": "brand",
+   "grid": "size 16x16\nbase 0x72-dungeontilesetii-v1.7/0x72_DungeonTilesetII_v1.7/frames/ui_heart_full.png 0,0,13,12\nconcept Snack Break: heart (0x72 ui_heart_full)\nlegend\n  a #2a2a3a\n  b #da4e38\n  c #fdf7ed\n  k #141b1b outline\nframe\n................\n...kkk...kkk....\n..kccck.kccck...\n.kcaaackcaaack..\nkcabbbacabbback.\nkcabbbbabbbback.\nkcabbbbbbbbback.\nkcabbbbbbbbback.\n.kcabbbbbbback..\n..kcabbbbback...\n...kcabbback....\n....kcaback.....\n.....kcack......\n......kck.......\n.......k........\n................\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "icon_cooldown": {
+   "palette": "brand",
+   "grid": "size 16x16\nbase ninja-adventure/Ninja Adventure - Asset Pack/Items/Object/Hourglass.png 0,0,16,16\nconcept Hot Reload: hourglass (Ninja Adventure Hourglass)\nlegend\n  a #141b1b\n  b #965340\n  c #e66a3a\n  d #f38c4c\n  e #abc2bc\n  f #f1c471\n  g #f2eaf1\nframe\n.aaaaaaaaaaaaaa.\nadddddddccccccca\nadddddddccccccca\n.abbbbbbbbbbbba.\n.abgeeeeeeeegba.\n..abgeeeeeegba..\n...abgffffgba...\n....abgffgba....\n....acgffgca....\n...acgffffgca...\n..acgfggfffgca..\n.acgfggfffffgca.\n.acccccccccccca.\nadddddddccccccca\nadddddddccccccca\n.aaaaaaaaaaaaaa.\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "coin": {
+   "palette": "brand",
+   "grid": "size 8x8\nbase 0x72-dungeontilesetii-v1.7/0x72_DungeonTilesetII_v1.7/frames/coin_anim_f0.png 0,0,6,7\nconcept gold coin (0x72 coin_anim_f0)\nlegend\n  a #ee8e2e\n  b #facb3e\n  c #fdf7ed\n  k #141b1b outline\nframe\n...kk...\n..kack..\n.kabbck.\nkabbbbck\nkabbbbck\nkabbbbck\n.kabbck.\n..kack..\n",
+   "w": 8,
+   "h": 8,
+   "frames": 1
+  },
+  "chest": {
+   "palette": "brand",
+   "grid": "size 16x16\nbase ninja-adventure/Ninja Adventure - Asset Pack/Items/Treasure/LittleTreasureChest.png 0,0,16,16;0,0,16,16\nconcept gold-trimmed wooden chest, frame 2 glints (Ninja Adventure LittleTreasureChest)\nlegend\n  a #141b1b\n  b #4a2e24 dark wood\n  c #9a5c34 wood\n  d #e8a02a gold trim\n  e #c9844c wood light\n  f #ffe18d gold light\n  F #fffbe0 glint\n  D #ffd24a gold trim lit\nframe\n................\n................\n................\n................\n..aaaaaaaaaaaa..\n..acccccccccba..\n..acfeeeeeccba..\n.aaceeeeeeccbaa.\n.adccbbbbbbcbca.\n.afbbbfdddbbbca.\n.afddddaaddddda.\n.aabbbddddbbbaa.\n..accbbbbbbbba..\n..acccccccccba..\n..aaaaaaaaaaaa..\n................\nframe\n................\n................\n................\n................\n..aaaaaaaaaaaa..\n..acccccccccba..\n..acFeeeeeccba..\n.aaceeeeeeccbaa.\n.aDccbbbbbbcbca.\n.aFbbbFDDDbbbca.\n.aFDDDDaaDDDDDa.\n.aabbbDDDDbbbaa.\n..accbbbbbbbba..\n..acccccccccba..\n..aaaaaaaaaaaa..\n................\n",
+   "w": 16,
+   "h": 16,
+   "frames": 2
+  },
+  "food": {
+   "palette": "master",
+   "grid": "size 12x12\nconcept default food (from art.py)\nlegend\n  O #e45c10\n  Y #f8d878\n  a #fca044\n  k #000000\n  l #bcbcbc\n  r #a81000\n  w #fcfcfc\nframe\n..kkkkk.....\n.kaaOOOk....\nkaYaOOOOk...\nkaaOOOOOrk..\nkaOOOOOOrk..\nkOOOOOOrrk..\n.kOOOOrrk...\n..krrrrkkk..\n......kwwkk.\n.......kwwwk\n........kwlk\n.........kk.\n",
+   "w": 12,
+   "h": 12,
+   "frames": 1
+  },
+  "hotfix": {
+   "palette": "brand",
+   "grid": "size 16x16\nbase ninja-adventure/Ninja Adventure - Asset Pack/Items/Projectile/Bomb.png 0,0,12,13\nconcept hotfix bomb (Ninja Adventure Bomb)\nlegend\n  a #141b1b\n  b #6d6878 bomb shade\n  c #9a9aac bomb\n  d #ffad5d\n  e #e6ecf2 shine\nframe\n................\n................\n............a...\n.......aaa.ada..\n.....aacccadda..\n....accccbdda...\n...aceecccbaa...\n...aceeccccca...\n..accccccccbba..\n..abccccccbbba..\n...abccccbbba...\n...abbbbbbbba...\n....abbbbbba....\n.....aabbaa.....\n.......aa.......\n................\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "vacuum": {
+   "palette": "master",
+   "grid": "size 16x16\nconcept default vacuum (from art.py)\nlegend\n  B #0058f8\n  R #f83800\n  Y #f8d878\n  c #3cbcfc\n  k #000000\n  l #bcbcbc\n  n #0000bc\n  r #a81000\n  s #f87858\n  w #fcfcfc\nframe\n..Y..........w..\n.YwY.....Y......\n..Y.....YwY.....\n.........Y......\n.kkkkkk..kkkkkk.\n.kwwwwk..kwwwwk.\n.klllwk..klllwk.\n.kkkkkk..kkkkkk.\n.ksRRrk..kcBBnk.\n.ksRRrk..kcBBnk.\n.ksRRRkkkkBBBnk.\n.ksRRRRRBBBBBnk.\n..ksRRRRBBBBnk..\n...krrrrnnnnk...\n....kkkkkkkk....\n................\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "crate": {
+   "palette": "master",
+   "grid": "size 16x16\nconcept default crate (from art.py)\nlegend\n  O #e45c10\n  a #fca044\n  b #503000\n  k #000000\n  o #ac7c00\nframe\n................\n.kkkkkkkkkkkkkk.\n.kaaaaaaaaaaabk.\n.kaooooooooobbk.\n.kaoooooooOabbk.\n.kaooooooOabbbk.\n.kaobbbbOabbbbk.\n.kaooooOaboobbk.\n.kaoooOabooobbk.\n.kaobOabbbbbbbk.\n.kaoOabooooobbk.\n.kaoaboooooobbk.\n.kabbbbbbbbbbbk.\n.kbbbbbbbbbbbbk.\n.kkkkkkkkkkkkkk.\n................\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "hat": {
+   "palette": "master",
+   "grid": "size 12x10\nconcept default hat (from art.py)\nlegend\n  B #0058f8\n  C #a4e4fc\n  G #00b800\n  P #d800cc\n  R #f83800\n  Y #f8d878\n  c #3cbcfc\n  d #007800\n  i #f85898\n  k #000000\n  n #0000bc\n  p #940084\n  r #a81000\n  s #f87858\n  w #fcfcfc\n  y #f8b800\nframe\n............\n............\n............\n...kkkkk....\n..kBwBBBk...\n.kBcBBBBnk..\n.kBBBBBBnk..\n.kBBBBBBBkkk\n.knnnnnnBBBk\n..kkkkkkkkkk\nframe\n...kk.......\n...kPk......\n....kPk.....\n....kPPk....\n...kPYPPk...\n...kYwYPk...\n..kPPYPPPk..\n..kPPPPPPPk.\nkppppppppppk\n.kkkkkkkkkk.\nframe\n............\n.....kk.....\n....kwwk....\n...kkkkkk...\n..kRRRRRRk..\n.kRsRRRRRRk.\n.kRRRRRRRrk.\nkGdGdGdGdGdk\nkGdGdGdGdGdk\n.kkkkkkkkkk.\nframe\n....kwk.....\n....kYk.....\n....kik.....\n...kiCik....\n...kCCik....\n..kiiCCik...\n..kCiiCCk...\n.kCCiiCCik..\n.kiCCiiCCk..\n.kkkkkkkkk..\nframe\n............\n............\n............\n.k...kk...k.\nkYk.kYYk.kYk\nkyYkYyyYkYyk\nkyyyyyyyyyyk\nkyyRyyyyByyk\nkyyyyyyyyyyk\nkkkkkkkkkkkk\n",
+   "w": 12,
+   "h": 10,
+   "frames": 5
+  },
+  "icon_armour": {
+   "palette": "master",
+   "grid": "size 16x16\nconcept default icon_armour (from art.py)\nlegend\n  B #0058f8\n  C #a4e4fc\n  k #000000\n  l #bcbcbc\n  w #fcfcfc\nframe\n................\n..kkkkkkkkkkkk..\n..kllllllllllk..\n..klCBBBBBBBlk..\n..klBBBBBBBwlk..\n..klBBBBBBwwlk..\n..klBwBBBwwBlk..\n..klBwwBwwBBlk..\n..klBBwwwBBBlk..\n...klBBBBBBlk...\n....klBBBBlk....\n.....klBBlk.....\n......kllk......\n.......kk.......\n................\n................\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "icon_area": {
+   "palette": "master",
+   "grid": "size 16x16\nconcept default icon_area (from art.py)\nlegend\n  B #0058f8\n  c #3cbcfc\n  k #000000\n  l #bcbcbc\n  w #fcfcfc\nframe\n................\n.kkkkkkkkkkkkkk.\n.kllllllllllllk.\n.klwwBBBBBBwwlk.\n.klwBBBBBBBBwlk.\n.klBBBcBBBBBBlk.\n.klBBBBBBBBBBlk.\n.klBBBBBBBBBBlk.\n.klwBBBBBBBBwlk.\n.klwwBBBBBBwwlk.\n.kllllllllllllk.\n.kkkkkkkkkkkkkk.\n......kllk......\n....kllllllk....\n....kkkkkkkk....\n................\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "icon_amount": {
+   "palette": "master",
+   "grid": "size 16x16\nconcept default icon_amount (from art.py)\nlegend\n  C #a4e4fc\n  G #00b800\n  c #3cbcfc\n  e #58d854\n  k #000000\nframe\n....k...........\n...kCk......k...\n..kCcck....kek..\n.kCcccck..kGeek.\n.kkCcckk.kGeeeek\n..kCcck..kkGeekk\n..kCcck...kGeek.\n..kCcck...kGeek.\n..kCcck...kGeek.\n..kCcck...kGeek.\n..kCcck...kGeek.\n..kkkkk...kGeek.\n..........kGeek.\n..........kkkkk.\n................\n................\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "icon_crit": {
+   "palette": "master",
+   "grid": "size 16x16\nconcept default icon_crit (from art.py)\nlegend\n  O #e45c10\n  Y #f8d878\n  k #000000\n  o #ac7c00\n  y #f8b800\nframe\n................\n................\n.........kkkk...\n........kYYyyk..\n........kYykyk..\n........kyyyyOOk\n.k......kyyyykk.\n.kk......kyyk...\n.kYkkkkkkyyyyk..\n.kYYYYYyyyyyyyk.\n.kyYYyyyyyyyyyk.\n.kyyyyyyyyyyyok.\n..kyyyyyyyyyook.\n...kooooooook...\n....kkkkkkkk....\n................\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "icon_growth": {
+   "palette": "brand",
+   "grid": "size 16x16\nbase ninja-adventure/Ninja Adventure - Asset Pack/Items/Object/Book.png 0,0,16,16\nconcept Docs Day: book (Ninja Adventure Book)\nlegend\n  a #141b1b\n  b #e66a3a\n  c #ff8b62\n  d #abc2bc\n  e #f2eaf1\nframe\n.......aaa......\n......acccaa....\n.....accbbccaa..\n....acccccbbcca.\n...accbbccccbbca\n..accbccbbccccca\n.accbcccccbccca.\nacccbcccccbccbda\nabbccbbccbccbdba\nabebbccbbccbdba.\nabeeebbcccbdba..\n.abeeeebbbdba...\n..abbeeeddba....\n...aabbedba.....\n.....aabba......\n.......aa.......\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "icon_luck": {
+   "palette": "master",
+   "grid": "size 16x16\nconcept default icon_luck (from art.py)\nlegend\n  G #00b800\n  d #007800\n  e #58d854\n  k #000000\nframe\n................\n...kkk....kkk...\n..keeGk..kGeek..\n.keGGGGkkGGGGek.\n.kGGGGGkkGGGGGk.\n..kGGGdkkdGGGk..\n...kkkdddkkkk...\n..kGGGdkkdGGGk..\n.kGGGGGkkGGGGGk.\n.kGGGGdkkdGGGGk.\n..kGGdk..kdGGk..\n...kkkkdk.kkk...\n.......kdk......\n........kdk.....\n.........kk.....\n................\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "icon_revive": {
+   "palette": "master",
+   "grid": "size 16x16\nconcept default icon_revive (from art.py)\nlegend\n  G #00b800\n  e #58d854\n  k #000000\nframe\n................\n................\n.....kkkkkk.....\n...kkeeeeeekk...\n..keeekkkkGGGk..\n..keek....kGGk..\nkkeekkk....kGGk.\nkeeeeek....kGGk.\n.keeek......kGk.\n..kek......kGGk.\n...k.......kGGk.\n..kkkk....kGGk..\n..kGGGkkkkGGGk..\n...kkGGGGGGkk...\n.....kkkkkk.....\n................\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "icon_web_analytics": {
+   "palette": "brand",
+   "grid": "size 16x16\nconcept Web Analytics: a globe with meridians\nlegend\n  k #141b1b\n  a #58d854\n  b #fcfcfc\n  c #00b800\n  d #a4e4fc\n  e #007800\nframe\n................\n.....kkkkkk.....\n...kkabaabckk...\n..kaabccccback..\n..kbbbbbbbbbdk..\n.kacbbccccbbcck.\n.kacbccccccbcek.\n.kbbbbbbbbbbbdk.\n.kacbccccccbcek.\n.kacbccccccbcek.\n.kccbbccccbbcek.\n..kbbbbbbbbbdk..\n..kcebccccbeek..\n...kkcdeedekk...\n.....kkkkkk.....\n................\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "icon_heatmaps": {
+   "palette": "brand",
+   "grid": "size 16x16\nconcept Heatmaps: a flame, white-hot core (1-bit #505)\nlegend\n  k #141b1b\n  a #f83800\n  b #fca044\n  c #a81000\n  d #f8d878\n  e #e45c10\nframe\n................\n.......k........\n......kak.......\n.......kak......\n......kbaak.....\n.....kback......\n.....kdbbbk.....\n....kdbbbbbk....\n....kdbbbbek....\n...kbbddddbbk...\n....kdddddbek...\n...kdbddddek....\n...kbbddddbbk...\n....kbebbeek....\n.....kkbekk.....\n.......kk.......\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "icon_posthog_ai": {
+   "palette": "brand",
+   "grid": "size 16x16\nconcept PostHog AI: sparkles\nlegend\n  k #141b1b\n  I #d800cc\n  w #f8b8f8\n  p #940084\nframe\n...........k....\n..........kIk...\n.........kIwIk..\n..........kIk...\n.....k.....k....\n....kIk.........\n....kIk.........\n...kIwIk........\n.kkIwwwIkk......\nkIIwwwwwIIk.....\n.kkIwwwpkk......\n...kpwpk........\n....kpk.........\n....kpk.........\n.....k..........\n................\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "icon_data_warehouse": {
+   "palette": "brand",
+   "grid": "size 16x16\nconcept Data Warehouse: a database cylinder\nlegend\n  k #141b1b\n  C #a4e4fc\n  w #fcfcfc\n  B #3cbcfc\n  n #0058f8\nframe\n................\n....kkkkkkkk....\n..kkCCCCCCCCkk..\n.kCCwwCCCCCCCCk.\n.kCCCCCCCCCCCCk.\n.knCCCCCCCCCCnk.\n.kBnnCCCCCCnnBk.\n.kwBBnnnnnnBBBk.\n.knBBBBBBBBBBnk.\n.kBnnBBBBBBnnBk.\n.kwBBnnnnnnBBBk.\n.knBBBBBBBBBBnk.\n.kBnnBBBBBBnnBk.\n.kkBBnnnnnnBBkk.\n...kkkkkkkkkk...\n................\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "icon_workflows": {
+   "palette": "brand",
+   "grid": "size 16x16\nconcept Workflows: a flowchart of three steps\nlegend\n  k #141b1b\n  a #fca044\n  O #e45c10\n  r #a81000\n  w #fcfcfc\nframe\n................\n.kkkkk....kkkkk.\n.kaaOk....kaaOk.\n.kaOOk....kaOOk.\n.kOOrk....kOOrk.\n.kkkkk....kkkkk.\n..kwk......kwk..\n..kwkkkkkkkkwk..\n..kwwwwwwwwwwk..\n..kkkkkwwkkkkk..\n......kwwk......\n....kkkwwkkk....\n....kaaaaOOk....\n....kaaOOOrk....\n....kaOOOrrk....\n....kkkkkkkk....\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "drone": {
+   "palette": "brand",
+   "grid": "size 12x12\nconcept Max AI drone: purple robot orb with a cyan-eyed visor and a spinning rotor\nlegend\n  k #141b1b\n  P #9878f8\n  p #6844fc\n  w #d8b8f8\n  c #3cbcfc\nframe\n..kkkkkkkk..\n.....kk.....\n...kkkkkk...\n..kPPPPPPk..\n.kPPwwPPPPk.\n.kPkkkkkkPk.\n.kPkckkckPk.\n.kPkkkkkkPk.\n.kpPPPPPPpk.\n..kppppppk..\n...kkkkkk...\n............\nframe\n....kkkk....\n.....kk.....\n...kkkkkk...\n..kPPPPPPk..\n.kPPwwPPPPk.\n.kPkkkkkkPk.\n.kPkckkckPk.\n.kPkkkkkkPk.\n.kpPPPPPPpk.\n..kppppppk..\n...kkkkkk...\n............\n",
+   "w": 12,
+   "h": 12,
+   "frames": 2
+  },
+  "ai_bolt": {
+   "palette": "brand",
+   "grid": "size 8x8\nconcept Max AI bolt: a magenta spark\nlegend\n  k #141b1b\n  I #f878f8\n  w #fcfcfc\nframe\n........\n...kk...\n..kIIk..\n.kIwwIk.\n.kIwwIk.\n..kIIk..\n...kk...\n........\n",
+   "w": 8,
+   "h": 8,
+   "frames": 1
+  },
+  "vault": {
+   "palette": "brand",
+   "grid": "size 12x12\nconcept Warehouse Vault: a heavy data drum\nlegend\n  k #141b1b\n  C #a4e4fc\n  w #fcfcfc\n  B #3cbcfc\n  n #0058f8\nframe\n..kkkkkkkk..\n.kCCwCCCCCk.\n.kCCCCCCCCk.\n.knCCCCCCnk.\n.kBnnnnnnBk.\n.knBBBBBBnk.\n.kBnnnnnnBk.\n.knBBBBBBnk.\n.kBnnnnnnBk.\n.kkBBBBBBkk.\n..kkkkkkkk..\n............\n",
+   "w": 12,
+   "h": 12,
+   "frames": 1
+  },
+  "autopilot": {
+   "palette": "brand",
+   "grid": "size 16x16\nconcept Self-Driving Mode: a steering wheel\nlegend\n  k #141b1b\n  a #a4e4fc\n  b #3cbcfc\n  c #0058f8\n  d #fcfcfc\n  e #bcbcbc\n  f #7c7c7c\nframe\n......kkkk......\n....kkaaabkk....\n...kaabccbabk...\n..kabcckkbcbbk..\n.kabckk..kkbbbk.\n.kack.kkkk.kack.\nkabckkdddekkabbk\nkabbaaeeeeaabbck\nkabbcceeeeccbbck\nkbbckkeeefkkabck\n.kack.kack.kack.\n.kbbbkkackkabck.\n..kbbaabbaabck..\n...kbcbbbbcck...\n....kkbccckk....\n......kkkk......\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "freeze": {
+   "palette": "brand",
+   "grid": "size 16x16\nconcept Feature Freeze: a snowflake (1-bit #616)\nlegend\n  k #141b1b\n  a #a4e4fc\n  b #fcfcfc\n  c #3cbcfc\nframe\n.....k....k.....\n....kakkkkak....\n...kkkkbakkkk...\n..kbakkbckkbak..\n.kkaaakackbackk.\nkakkackkkkackkak\n.kkkkkakkakkkkk.\n.kbbakkbakkbbak.\n.kacckkackkacck.\n.kkkkkakkakkkkk.\nkakkbakkkkbakkak\n.kkbackbakaaakk.\n..kackkbckkack..\n...kkkkackkkk...\n....kakkkkak....\n.....k....k.....\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "shipit": {
+   "palette": "brand",
+   "grid": "size 16x16\nconcept Ship It: a rocket (1-bit #1062) with an exhaust flame\nlegend\n  k #141b1b\n  a #fcfcfc\n  b #f87858\n  c #f83800\n  d #a81000\n  e #bcbcbc\n  f #f8d878\n  g #fca044\nframe\n................\n..........kkkk..\n.........kabbck.\n........kaaccdk.\n....kk.kakaccdk.\n..kkbakaaakaaek.\n.kbbdkaaaaakak..\nkbcdkaaaaaaak...\nkcdkbaeaaaek....\n.kkccekaaek.....\n...kckbcdkck....\n.kkfkccdkbdk....\nkaafckckbdk.....\nkffgk.kbcdk.....\n.kfk..kcdk......\n..k....kk.......\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "rewind": {
+   "palette": "brand",
+   "grid": "size 16x16\nconcept Rewind: Session Replay's frame with a rewind symbol\nlegend\n  k #141b1b\n  y #f8d878\n  Y #f8b800\n  o #ac7c00\n  w #fcfcfc\nframe\n................\n.kkkkkkkkkkkkkk.\n.kyyyyyyyyyyyyk.\n.kYkkkkkkkkkkYk.\n.kYkkkkwkkkwkYk.\n.kYkkkwwkkwwkYk.\n.kYkkwwwkwwwkYk.\n.kYkwwwwwwwwkYk.\n.kYkwwwwwwwwkYk.\n.kYkkwwwkwwwkYk.\n.kYkkkwwkkwwkYk.\n.kYkkkkwkkkwkYk.\n.kYkkkkkkkkkkYk.\n.kooooooooooook.\n.kkkkkkkkkkkkkk.\n................\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "merch": {
+   "palette": "brand",
+   "grid": "size 16x16\nconcept Merch relic: a PostHog t-shirt with the logo\nlegend\n  k #141b1b\n  R #f83800\n  r #a81000\n  y #f8b800\n  Y #f8d878\nframe\n................\n....kkk..kkk....\n..kkRRRkkRRRkk..\n.kRRRRRRRRRRRRk.\nkRRRRRRRRRRRRRRk\nkRRRkRRRRRRkRRRk\n.kkkkRRyyRRkkkk.\n....kRyYYyRk....\n....kRRyyRRk....\n....kRRRRRRk....\n....kRRRRRRk....\n....krRRRRrk....\n....krRRRRrk....\n....krrRRrrk....\n....kkkkkkkk....\n................\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "page": {
+   "palette": "brand",
+   "grid": "size 16x16\nconcept Handbook page: paper with lines of text and a folded corner\nlegend\n  k #141b1b\n  w #fcfcfc\n  l #bcbcbc\n  g #7c7c7c\n  R #f83800\nframe\n................\n...kkkkkkkk.....\n...kwwwwwwkk....\n...kwwwwwwklk...\n...kwggggwkkkk..\n...kwwwwwwwwwk..\n...kwggggggwwk..\n...kwwwwwwwwwk..\n...kwgggggwwwk..\n...kwwwwwwwwwk..\n...kwggggggwwk..\n...kwwwwwwwwwk..\n...kwRRwwwwlwk..\n...kwRRwwwwwwk..\n...kkkkkkkkkkk..\n................\n",
+   "w": 16,
+   "h": 16,
+   "frames": 1
+  },
+  "posthog_logo": {
+   "palette": "brand",
+   "grid": "size 39x21\nconcept PostHog logomark in 8-bit: blue/orange/yellow spikes and the hedgehog head (from @posthog/brand)\nlegend\n  b #1d4aff blue\n  o #f54e00 orange\n  y #f9bd2b yellow\n  h #eeefe9 hedgehog head (light: splash screens are dark)\nframe\n.bbb.....ooo.....yyy...................\nbbbbb...ooooo...yyyyy..................\nbbbbbb..oooooo..yyyyyy.................\nbbbbbbb.ooooooo.yyyyyyy................\nbbbbbbbbooooooooyyyyyyyy...............\n.bbbbbbb.ooooooo.yyyyyyy...............\nb.bbbbbbo.ooooooy.yyyyyy...............\nbb.bbbbboo.oooooyy.yyyyy...............\nbbb.bbbbooo.ooooyyy.yyyy.hhh...........\nbbbb.bbboooo.oooyyyy.yyy.hhhh..........\nbbbbb.bbooooo.ooyyyyy.yy.hhhhh.........\nbbbbbb.boooooo.oyyyyyy.y.hhhhhh........\nbbbbbbb.ooooooo.yyyyyyy..hhhhhhh.......\n.bbbbbbb.ooooooo.yyyyyyy.hhhhhhhh......\nb.bbbbbbo.ooooooy.yyyyyy.hhhhhhhhh.....\nbb.bbbbboo.oooooyy.yyyyy.hhh..hhhhh....\nbbb.bbbbooo.ooooyyy.yyyy.hhh..hhhhhh...\nbbbb.bbboooo.oooyyyy.yyy.hhhhhhhhhhhh..\nbbbbb.bbooooo.ooyyyyy.yy.hhhhhhhhhhhhhh\nbbbbbb.boooooo.oyyyyyy.y.hhhhhhhhhhhhhh\nbbbbbbb.ooooooo.yyyyyyy..hhhhhhhhhhhhh.\n",
+   "w": 39,
+   "h": 21,
+   "frames": 1
+  },
+  "posthog_mark": {
+   "palette": "brand",
+   "grid": "size 15x8\nconcept PostHog logomark, tiny (the \"powered by\" line)\nlegend\n  b #1d4aff blue\n  o #f54e00 orange\n  y #f9bd2b yellow\n  h #eeefe9 hedgehog head\nframe\nbb.oo.yy.......\nbbboooyyy......\nbbboooyyy......\n.bb.oo.yy.hh...\nb.bo.oy.y.hhh..\nbb.oo.yy..hhhh.\nbbboooyyy.h.hhh\nbbboooyyy.hhhhh\n",
+   "w": 15,
+   "h": 8,
+   "frames": 1
+  },
+  "posthog_wordmark": {
+   "palette": "brand",
+   "grid": "size 66x14\nconcept the PostHog wordmark as a bold 8-bit word (2 px strokes; light, for dark splash screens)\nlegend\n  h #eeefe9 letters\nframe\nhhhhhh...............................hh.....hh....................\nhhhhhhh.......................hh.....hh.....hh....................\nhh...hhh......................hh.....hh.....hh....................\nhh....hh......................hh.....hh.....hh....................\nhh....hh......................hh.....hh.....hh....................\nhh...hhh...hhhhhh....hhhhhh..hhhhhh..hhhhhhhhh...hhhhhh....hhhhhh.\nhhhhhhh...hhh..hhh..hhh......hhhhhh..hhhhhhhhh..hhh..hhh..hhh..hhh\nhhhhhh....hh....hh..hhh.......hh.....hh.....hh..hh....hh..hh....hh\nhh........hh....hh...hhhhh....hh.....hh.....hh..hh....hh..hh....hh\nhh........hh....hh......hhh...hh.....hh.....hh..hh....hh..hhh..hhh\nhh........hhh..hhh......hhh...hhh....hh.....hh..hhh..hhh...hhhhhhh\nhh.........hhhhhh...hhhhhh.....hhhh..hh.....hh...hhhhhh.........hh\n..........................................................hh...hhh\n...........................................................hhhhhh.\n",
+   "w": 66,
+   "h": 14,
+   "frames": 1
+  }
+ }
+}

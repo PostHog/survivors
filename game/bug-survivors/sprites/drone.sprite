@@ -1,0 +1,34 @@
+size 12x12
+concept Max AI drone: purple robot orb with a cyan-eyed visor and a spinning rotor
+legend
+  k #141b1b
+  P #9878f8
+  p #6844fc
+  w #d8b8f8
+  c #3cbcfc
+frame
+..kkkkkkkk..
+.....kk.....
+...kkkkkk...
+..kPPPPPPk..
+.kPPwwPPPPk.
+.kPkkkkkkPk.
+.kPkckkckPk.
+.kPkkkkkkPk.
+.kpPPPPPPpk.
+..kppppppk..
+...kkkkkk...
+............
+frame
+....kkkk....
+.....kk.....
+...kkkkkk...
+..kPPPPPPk..
+.kPPwwPPPPk.
+.kPkkkkkkPk.
+.kPkckkckPk.
+.kPkkkkkkPk.
+.kpPPPPPPpk.
+..kppppppk..
+...kkkkkk...
+............

@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bug Survivors guide: every weapon, bug and boss</title>
+<meta name="description" content="The complete Bug Survivors guide with the real numbers: controls, weapons and evolutions, passives, every bug, the boss and the wave ladder." data-seo>
+<meta name="robots" content="index, follow, max-image-preview:large" data-seo>
+<link rel="canonical" href="https://survivors.posthog.com/guide" data-seo>
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon.png">
+<meta property="og:type" content="article" data-seo>
+<meta property="og:site_name" content="PostHog" data-seo>
+<meta property="og:url" content="https://survivors.posthog.com/guide" data-seo>
+<meta property="og:title" content="Bug Survivors guide: every weapon, bug and boss" data-seo>
+<meta property="og:description" content="The complete Bug Survivors guide with the real numbers: controls, weapons and evolutions, passives, every bug, the boss and the wave ladder." data-seo>
+<meta property="og:image" content="https://survivors.posthog.com/og.png" data-seo>
+<meta name="twitter:card" content="summary_large_image" data-seo>
+<meta name="twitter:site" content="@PostHog" data-seo>
+<meta name="twitter:title" content="Bug Survivors guide: every weapon, bug and boss" data-seo>
+<meta name="twitter:description" content="The complete Bug Survivors guide with the real numbers: controls, weapons and evolutions, passives, every bug, the boss and the wave ladder." data-seo>
+<meta name="twitter:image" content="https://survivors.posthog.com/og.png" data-seo>
+<script type="application/ld+json" data-seo>{"@context":"https://schema.org","@type":"TechArticle","headline":"Bug Survivors guide: every weapon, bug and boss","description":"The complete Bug Survivors guide with the real numbers: controls, weapons and evolutions, passives, every bug, the boss and the wave ladder.","url":"https://survivors.posthog.com/guide","image":"https://survivors.posthog.com/og.png","inLanguage":"en","isAccessibleForFree":true,"author":{"@type":"Organization","name":"PostHog","url":"https://posthog.com"},"publisher":{"@type":"Organization","name":"PostHog","url":"https://posthog.com"},"about":{"@type":"VideoGame","name":"Bug Survivors","url":"https://survivors.posthog.com/"},"mainEntityOfPage":"https://survivors.posthog.com/guide"}</script>
+<style>
+/* Self-hosted (latin subset, SIL Open Font License 1.1): see public/fonts/README.md. Plex Sans is one variable file. */
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/ibm-plex-mono-400.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 600; font-display: swap; src: url(fonts/ibm-plex-mono-600.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'IBM Plex Sans'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(fonts/ibm-plex-sans-variable.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'IBM Plex Sans'; font-style: italic; font-weight: 400; font-display: swap; src: url(fonts/ibm-plex-sans-400-italic.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Press Start 2P'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/press-start-2p-400.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+</style>
+<style>
+:root {
+  --bg: #eeefe9; --surface: #ffffff; --surface2: #f6f6f2; --line: #d8d9d0; --line2: #e6e7df;
+  --text: #1d1f27; --muted: #5d6070; --faint: #8a8d99;
+  --accent: #f54e00; --accent-soft: rgba(245, 78, 0, 0.10); --yellow: #c98a00; --gold: #f9bd2b; --blue: #1d4aff;
+  --code-bg: #1d1f27; --code-text: #f3f1e8; --shadow: 0 1px 2px rgba(0,0,0,.05), 0 6px 24px rgba(0,0,0,.05);
+  --hero-a: #f54e00; --hero-b: #1d1f27;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #131418; --surface: #1b1d24; --surface2: #20232b; --line: #2d303a; --line2: #262932;
+    --text: #e9e8e1; --muted: #a4a6b2; --faint: #6f7280;
+    --accent: #ff6a1f; --accent-soft: rgba(255, 106, 31, 0.12); --yellow: #f9bd2b; --gold: #f9bd2b; --blue: #6f8bff;
+    --code-bg: #0e0f12; --code-text: #f3f1e8; --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 30px rgba(0,0,0,.25);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #131418; --surface: #1b1d24; --surface2: #20232b; --line: #2d303a; --line2: #262932;
+  --text: #e9e8e1; --muted: #a4a6b2; --faint: #6f7280;
+  --accent: #ff6a1f; --accent-soft: rgba(255, 106, 31, 0.12); --yellow: #f9bd2b; --gold: #f9bd2b; --blue: #6f8bff;
+  --code-bg: #0e0f12; --code-text: #f3f1e8; --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 30px rgba(0,0,0,.25);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 20px; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: 17px/1.65 "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+img { image-rendering: pixelated; }
+
+/* progress bar */
+#progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: linear-gradient(90deg, var(--accent), var(--gold)); z-index: 50; }
+
+/* layout */
+.layout { display: grid; grid-template-columns: 290px minmax(0, 1fr); max-width: 1320px; margin: 0 auto; }
+aside {
+  position: sticky; top: 0; height: 100vh; overflow-y: auto; padding: 28px 18px 40px 24px;
+  border-right: 1px solid var(--line); scrollbar-width: thin;
+}
+main { padding: 0 48px 120px; min-width: 0; }
+.col { max-width: 860px; margin: 0 auto; }
+
+/* sidebar */
+.brand { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+.brand img { width: 34px; height: auto; }
+.brand b { font: 10px/1.5 "Press Start 2P", monospace; letter-spacing: .02em; }
+.brand small { display: block; color: var(--muted); font-size: 12px; }
+.filter { width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--text); font: inherit; font-size: 14px; margin-bottom: 12px; }
+.filter:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+nav ol { list-style: none; margin: 0; padding: 0; }
+nav li a {
+  display: flex; gap: 10px; align-items: baseline; padding: 5px 8px; border-radius: 6px; color: var(--muted);
+  font-size: 14px; line-height: 1.35; text-decoration: none;
+}
+nav li a .n { font: 9px "Press Start 2P", monospace; color: var(--faint); min-width: 20px; }
+nav li a:hover { background: var(--surface2); color: var(--text); }
+nav li a.on { background: var(--accent-soft); color: var(--text); font-weight: 600; }
+nav li a.on .n { color: var(--accent); }
+.side-foot { margin-top: 18px; display: flex; gap: 8px; }
+.btn {
+  border: 1px solid var(--line); background: var(--surface); color: var(--text); border-radius: 8px; padding: 7px 10px;
+  font: 500 13px "IBM Plex Sans", sans-serif; cursor: pointer;
+}
+.btn:hover { border-color: var(--accent); }
+
+/* mobile contents */
+.mtop { display: none; }
+
+/* hero */
+.hero { position: relative; margin: 0 -48px 40px; padding: 64px 48px 44px; overflow: hidden;
+  background: radial-gradient(1200px 400px at 10% -10%, rgba(245,78,0,.22), transparent 60%), radial-gradient(800px 300px at 100% 0%, rgba(249,189,43,.16), transparent 60%);
+  border-bottom: 1px solid var(--line); }
+.hero .col { position: relative; }
+.eyebrow { font: 10px/1.6 "Press Start 2P", monospace; color: var(--accent); letter-spacing: .04em; }
+.hero h1 { font: 700 clamp(36px, 6vw, 60px)/1.02 "IBM Plex Sans", sans-serif; letter-spacing: -0.03em; margin: 14px 0 18px; }
+.hero h1 span { color: var(--accent); }
+.hero p { color: var(--muted); max-width: 680px; margin: 0 0 12px; }
+.hero ul { color: var(--muted); max-width: 720px; padding-left: 20px; font-size: 15px; }
+.hero ul li { margin: 4px 0; }
+.parade { display: flex; gap: 6px; align-items: flex-end; margin: 26px 0 6px; height: 72px; }
+.parade img { height: 56px; width: auto; animation: bob 2.4s ease-in-out infinite; animation-delay: calc(var(--i) * -0.27s); filter: drop-shadow(0 4px 0 rgba(0,0,0,.12)); }
+@keyframes bob { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(-6px) } }
+@media (prefers-reduced-motion: reduce) { .parade img { animation: none; } html { scroll-behavior: auto; } }
+
+/* content */
+section { padding-top: 26px; }
+h2 { font: 700 30px/1.15 "IBM Plex Sans", sans-serif; letter-spacing: -0.02em; margin: 34px 0 16px; padding-top: 22px; border-top: 1px solid var(--line); display: flex; align-items: baseline; gap: 14px; }
+section:first-of-type h2 { border-top: 0; padding-top: 0; }
+h2 .kick { font: 12px "Press Start 2P", monospace; color: var(--accent); flex: none; transform: translateY(-3px); }
+h3 { font: 600 21px/1.3 "IBM Plex Sans", sans-serif; letter-spacing: -0.01em; margin: 32px 0 10px; }
+h3::before { content: ""; display: inline-block; width: 8px; height: 8px; background: var(--accent); margin-right: 10px; transform: translateY(-3px); }
+p { margin: 0 0 14px; }
+ul, ol { padding-left: 22px; margin: 0 0 16px; }
+li { margin: 5px 0; }
+li::marker { color: var(--faint); }
+strong { font-weight: 600; }
+em { color: var(--muted); }
+code { font: 0.86em "IBM Plex Mono", monospace; background: var(--surface2); border: 1px solid var(--line2); padding: 1px 5px; border-radius: 5px; }
+pre.formula { background: var(--code-bg); color: var(--code-text); padding: 18px 20px; border-radius: 12px; overflow-x: auto; font: 14px/1.6 "IBM Plex Mono", monospace; box-shadow: var(--shadow); position: relative; }
+pre.formula code { background: none; border: 0; padding: 0; color: inherit; font: inherit; }
+
+/* tables */
+.tbl { overflow-x: auto; margin: 14px 0 22px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); box-shadow: var(--shadow); }
+table { border-collapse: collapse; width: 100%; font-size: 15px; line-height: 1.45; }
+th { text-align: left; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); background: var(--surface2); padding: 10px 14px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+td { padding: 9px 14px; border-bottom: 1px solid var(--line2); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+tbody tr:hover td { background: var(--accent-soft); }
+td:first-child { font-weight: 500; }
+table.kv td:first-child { width: 30%; color: var(--muted); font-weight: 600; font-size: 14px; }
+td strong { color: var(--text); }
+td img.ic { height: 26px; width: auto; vertical-align: middle; margin: -4px 8px -3px 0; }
+td img.ic.crest { height: 30px; }
+
+/* the void */
+#the-unhinged-set-pieces h3:last-of-type::before { background: #8c3cf8; box-shadow: 0 0 0 3px rgba(140,60,248,.25); }
+
+/* back to top */
+#top { position: fixed; right: 22px; bottom: 22px; width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--text); box-shadow: var(--shadow); cursor: pointer; opacity: 0; pointer-events: none; transition: opacity .2s; font-size: 18px; }
+#top.show { opacity: 1; pointer-events: auto; }
+
+footer { color: var(--faint); font-size: 13px; margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--line); }
+
+@media (max-width: 1000px) {
+  .layout { display: block; }
+  aside { display: none; }
+  main { padding: 0 16px 80px; }
+  .hero { margin: 0 -16px 28px; padding: 40px 16px 30px; }
+  .mtop { display: flex; position: sticky; top: 0; z-index: 20; gap: 8px; align-items: flex-start; padding: 10px 16px; margin: 0 -16px; background: var(--bg); border-bottom: 1px solid var(--line); }
+  .mtop details { flex: 1; }
+  .mtop summary { cursor: pointer; font-weight: 600; font-size: 15px; list-style: none; }
+  .mtop summary::before { content: "☰  "; color: var(--accent); }
+  .mtop nav { max-height: 65vh; overflow-y: auto; margin-top: 8px; }
+  body { font-size: 16px; }
+  h2 { font-size: 25px; }
+  table { font-size: 14px; }
+  td, th { padding: 8px 10px; }
+  table.wide { min-width: 640px; }
+  .parade img { height: 42px; }
+  .parade { height: 56px; }
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="layout">
+  <aside>
+    <div class="brand"><img src="" alt="" id="brandHog"><div><b>BUG SURVIVORS</b><small>The complete guide</small></div></div>
+    <input class="filter" id="filter" type="search" placeholder="Jump to a section…  ( / )" aria-label="Filter sections">
+    <nav><ol id="toc">{{TOC}}</ol></nav>
+    <div class="side-foot"><button class="btn" id="theme" type="button">Theme: auto</button></div>
+  </aside>
+  <main>
+    <div class="mtop">
+      <details id="mdet"><summary>Contents</summary><nav><ol>{{TOC}}</ol></nav></details>
+      <button class="btn" id="theme2" type="button">◐</button>
+    </div>
+    <header class="hero"><div class="col">
+      <div class="eyebrow">A PLAYER'S HANDBOOK</div>
+      <h1>Bug <span>Survivors</span>: the complete guide</h1>
+      <div class="parade">{{HERO}}</div>
+      {{INTRO}}
+    </div></header>
+    <div class="col">
+      {{BODY}}
+      <footer>Written from the game's source (bug-survivors/src). If a card's text and this guide disagree, the guide has the real numbers.</footer>
+    </div>
+  </main>
+</div>
+<button id="top" type="button" aria-label="Back to top">↑</button>
+<script>
+(() => {
+  const root = document.documentElement;
+  const store = { get: (k) => { try { return localStorage.getItem(k); } catch { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch {} } };
+  const modes = ['auto', 'light', 'dark'];
+  let mode = store.get('bsg-theme') || 'auto';
+  const apply = () => {
+    if (mode === 'auto') root.removeAttribute('data-theme'); else root.setAttribute('data-theme', mode);
+    document.getElementById('theme').textContent = 'Theme: ' + mode;
+  };
+  const cycle = () => { mode = modes[(modes.indexOf(mode) + 1) % 3]; store.set('bsg-theme', mode); apply(); };
+  document.getElementById('theme').onclick = cycle;
+  document.getElementById('theme2').onclick = cycle;
+  apply();
+
+  const first = document.querySelector('.parade img');
+  if (first) document.getElementById('brandHog').src = first.src;
+
+  // Scrollspy + progress + back to top.
+  const secs = [...document.querySelectorAll('main section')];
+  const links = [...document.querySelectorAll('nav a[data-s]')];
+  const bar = document.getElementById('progress'), top = document.getElementById('top');
+  let ticking = false;
+  const onScroll = () => {
+    const y = window.scrollY, h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+    top.classList.toggle('show', y > 900);
+    let cur = secs[0]?.id;
+    for (const s of secs) if (s.getBoundingClientRect().top < 140) cur = s.id;
+    for (const a of links) a.classList.toggle('on', a.dataset.s === cur);
+    const on = document.querySelector('aside nav a.on');
+    if (on) { const r = on.getBoundingClientRect(), side = document.querySelector('aside'); if (r.top < 80 || r.bottom > innerHeight - 40) side.scrollTop += r.top - innerHeight / 2; }
+    ticking = false;
+  };
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  onScroll();
+  top.onclick = () => scrollTo({ top: 0 });
+
+  // Filter the contents list; Enter jumps to the first match, "/" focuses it.
+  const f = document.getElementById('filter');
+  const items = [...document.querySelectorAll('#toc li')];
+  f.addEventListener('input', () => {
+    const q = f.value.trim().toLowerCase();
+    for (const li of items) li.style.display = !q || li.textContent.toLowerCase().includes(q) ? '' : 'none';
+  });
+  f.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') { const li = items.find((l) => l.style.display !== 'none'); if (li) li.querySelector('a').click(); }
+    if (e.key === 'Escape') { f.value = ''; f.dispatchEvent(new Event('input')); f.blur(); }
+  });
+  addEventListener('keydown', (e) => { if (e.key === '/' && document.activeElement !== f && getComputedStyle(document.querySelector('aside')).display !== 'none') { e.preventDefault(); f.focus(); } });
+  // Opened over the game (the title's GUIDE choice): ESC goes back to it.
+  if (window.parent !== window) addEventListener('keydown', (e) => { if (e.key === 'Escape' && document.activeElement !== f) parent.postMessage({ guide: 'close' }, '*'); });
+  document.querySelectorAll('.mtop nav a').forEach((a) => a.addEventListener('click', () => document.getElementById('mdet').open = false));
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+size 16x16
+base ninja-adventure/Ninja Adventure - Asset Pack/Items/Object/Book.png 0,0,16,16
+concept Docs Day: book (Ninja Adventure Book)
+legend
+  a #141b1b
+  b #e66a3a
+  c #ff8b62
+  d #abc2bc
+  e #f2eaf1
+frame
+.......aaa......
+......acccaa....
+.....accbbccaa..
+....acccccbbcca.
+...accbbccccbbca
+..accbccbbccccca
+.accbcccccbccca.
+acccbcccccbccbda
+abbccbbccbccbdba
+abebbccbbccbdba.
+abeeebbcccbdba..
+.abeeeebbbdba...
+..abbeeeddba....
+...aabbedba.....
+.....aabba......
+.......aa.......

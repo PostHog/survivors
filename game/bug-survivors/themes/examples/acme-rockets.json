@@ -1,0 +1,30 @@
+{
+  "prospect": { "name": "Acme Rockets", "short": "Acme", "domain": "acmerockets.com" },
+  "title": "Acme vs The Bug Swarm",
+  "tagline": "Made for Acme Rockets by PostHog",
+  "palette": { "primary": "#e0402a", "secondary": "#1c2a4a", "accent": "#f7c948" },
+  "products": ["feature_flags", "session_replay", "error_tracking", "experiments", "product_analytics"],
+  "music": { "mood": "heroic, fast, space-age countdown energy", "bpm": 156 },
+  "text": {
+    "win": "Launch window secured. Every satellite is in orbit and not one bug made it to production.",
+    "lose": "Houston, we have a bug problem. Refuel, flip a feature flag, and try again.",
+    "credits": "Made for the Acme Rockets crew by PostHog"
+  },
+  "game": {
+    "difficulty": "hard",
+    "starting_product": "feature_flags",
+    "arena": { "name": "Launch Pad 39A", "sprite_prompt": "launch pad concrete floor with yellow hazard stripes, seen from above" },
+    "enemies": [
+      { "name": "Flaky Test", "pain": "Green on Tuesday, red on launch day", "sprite_prompt": "a tiny jittery grey fly with a checkmark-shaped wing" },
+      { "name": "Prod Gremlin", "pain": "Found by customers before you", "sprite_prompt": "a round red beetle with glowing orange eyes and sparking antennae" },
+      { "name": "Opinion Moth", "pain": "Roadmap by loudest voice in the room", "sprite_prompt": "a big fluffy yellow moth with a megaphone-shaped mouth" }
+    ],
+    "boss": { "name": "Scrub Monster", "taunt": "T-minus never! This launch is SCRUBBED!", "sprite_prompt": "a giant armoured navy beetle shaped like a rocket fuel tank, red warning lights" },
+    "product_lines": {
+      "feature_flags": "Launch to 1% before 100%",
+      "session_replay": "See the telemetry UI through users' eyes",
+      "error_tracking": "Catch it before the customer calls",
+      "experiments": "Settle roadmap fights with data"
+    }
+  }
+}

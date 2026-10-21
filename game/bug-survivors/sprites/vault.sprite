@@ -1,0 +1,21 @@
+size 12x12
+concept Warehouse Vault: a heavy data drum
+legend
+  k #141b1b
+  C #a4e4fc
+  w #fcfcfc
+  B #3cbcfc
+  n #0058f8
+frame
+..kkkkkkkk..
+.kCCwCCCCCk.
+.kCCCCCCCCk.
+.knCCCCCCnk.
+.kBnnnnnnBk.
+.knBBBBBBnk.
+.kBnnnnnnBk.
+.knBBBBBBnk.
+.kBnnnnnnBk.
+.kkBBBBBBkk.
+..kkkkkkkk..
+............

@@ -1,0 +1,26 @@
+size 16x16
+concept Web Analytics: a globe with meridians
+legend
+  k #141b1b
+  a #58d854
+  b #fcfcfc
+  c #00b800
+  d #a4e4fc
+  e #007800
+frame
+................
+.....kkkkkk.....
+...kkabaabckk...
+..kaabccccback..
+..kbbbbbbbbbdk..
+.kacbbccccbbcck.
+.kacbccccccbcek.
+.kbbbbbbbbbbbdk.
+.kacbccccccbcek.
+.kacbccccccbcek.
+.kccbbccccbbcek.
+..kbbbbbbbbbdk..
+..kcebccccbeek..
+...kkcdeedekk...
+.....kkkkkk.....
+................

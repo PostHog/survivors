@@ -1,0 +1,40 @@
+size 32x32
+concept dark floor plates, dashed brand-tinted bevel (hand-drawn)
+legend
+  k #0b0a0f plate seam
+  f #16141d floor
+  v @4 bevel (dark primary)
+  s #1f1c29 scuff
+frame
+kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+kvfvfvfvfvfvfvffkvfvfvfvfvfvfvff
+kfffffffffffffffkfffffffffffffff
+kvffffffffffffffkvffffffffffffff
+kfffffffffffffffkfffffffffffffff
+kvffffffffffffffkvffffffffffffff
+kfffffffffffffffkfffffffffffffff
+kvffffssffffffffkvffffffffffffff
+kfffffffffffffffkfffffffffffffff
+kvffffffffffffffkvffffffffffffff
+kfffffffffffffffkfffffffffsfffff
+kvffffffffffffffkvffffffffffffff
+kfffffffffffffffkfffffffffffffff
+kvffffffffffffffkvffffffffffffff
+kfffffffffffffffkfffffffffffffff
+kfffffffffffffffkfffffffffffffff
+kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+kvfvfvfvfvfvfvffkvfvfvfvfvfvfvff
+kfffffffffffffffkfffffffffffffff
+kvffffffffffffffkvffffffffffffff
+kfffffffffffffffkfffffffffffffff
+kvffffffffffffffkvffffffffffffff
+kffffffffffssfffkfffffffffffffff
+kvffffffffffffffkvffffffffffffff
+kfffffffffffffffkfffffffffffffff
+kvffffffffffffffkvfffsffffffffff
+kfffffffffffffffkfffffffffffffff
+kvffffffffffffffkvffffffffffffff
+kfffffffffffffffkfffffffffffffff
+kvffffffffffffffkvffffffffffffff
+kfffffffffffffffkfffffffffffffff
+kfffffffffffffffkfffffffffffffff

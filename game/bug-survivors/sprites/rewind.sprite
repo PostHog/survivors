@@ -1,0 +1,25 @@
+size 16x16
+concept Rewind: Session Replay's frame with a rewind symbol
+legend
+  k #141b1b
+  y #f8d878
+  Y #f8b800
+  o #ac7c00
+  w #fcfcfc
+frame
+................
+.kkkkkkkkkkkkkk.
+.kyyyyyyyyyyyyk.
+.kYkkkkkkkkkkYk.
+.kYkkkkwkkkwkYk.
+.kYkkkwwkkwwkYk.
+.kYkkwwwkwwwkYk.
+.kYkwwwwwwwwkYk.
+.kYkwwwwwwwwkYk.
+.kYkkwwwkwwwkYk.
+.kYkkkwwkkwwkYk.
+.kYkkkkwkkkwkYk.
+.kYkkkkkkkkkkYk.
+.kooooooooooook.
+.kkkkkkkkkkkkkk.
+................

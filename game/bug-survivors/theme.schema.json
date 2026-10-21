@@ -1,0 +1,272 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "prospect",
+    "title",
+    "tagline",
+    "palette",
+    "products",
+    "music",
+    "text",
+    "game"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "prospect": {
+      "type": "object",
+      "required": [
+        "name",
+        "short"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40,
+          "description": "Company name as they write it"
+        },
+        "short": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 14,
+          "description": "Short name for tight spots"
+        },
+        "domain": {
+          "type": "string",
+          "maxLength": 60
+        }
+      }
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 30,
+      "description": "Game title shown big on the title screen"
+    },
+    "tagline": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 48,
+      "description": "One line under the title, e.g. 'Made for Acme Rockets by PostHog'"
+    },
+    "palette": {
+      "type": "object",
+      "required": [
+        "primary",
+        "secondary",
+        "accent"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "primary": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "description": "Main brand colour"
+        },
+        "secondary": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "description": "Second brand colour; the darker one becomes the background"
+        },
+        "accent": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "description": "Highlight colour for selections and titles"
+        }
+      }
+    },
+    "products": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 6,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "session_replay",
+          "feature_flags",
+          "experiments",
+          "error_tracking",
+          "product_analytics",
+          "surveys"
+        ]
+      },
+      "description": "PostHog products featured in the game, most relevant first"
+    },
+    "music": {
+      "type": "object",
+      "required": [
+        "mood"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "mood": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 80,
+          "description": "Mood words for the chiptune generator"
+        },
+        "bpm": {
+          "type": "integer",
+          "minimum": 80,
+          "maximum": 180
+        }
+      }
+    },
+    "text": {
+      "type": "object",
+      "required": [
+        "win",
+        "lose",
+        "credits"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "win": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 110
+        },
+        "lose": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 110
+        },
+        "credits": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 80
+        }
+      }
+    },
+    "game": {
+      "type": "object",
+      "required": [
+        "difficulty",
+        "starting_product",
+        "arena",
+        "enemies",
+        "boss"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "difficulty": {
+          "type": "string",
+          "enum": [
+            "easy",
+            "normal",
+            "hard"
+          ],
+          "description": "easy for execs and non-gamers, normal for most, hard for gamer champions"
+        },
+        "starting_product": {
+          "type": "string",
+          "enum": [
+            "session_replay",
+            "feature_flags",
+            "experiments",
+            "error_tracking",
+            "product_analytics",
+            "surveys"
+          ],
+          "description": "Weapon the hedgehog starts with; should be the product they need most. Must also be in products."
+        },
+        "arena": {
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 24,
+              "description": "Where the fight happens, e.g. 'Launch Pad 39A'"
+            },
+            "sprite_prompt": {
+              "type": "string",
+              "maxLength": 200,
+              "description": "Floor texture for a 32x32 tile, seen from above"
+            }
+          }
+        },
+        "enemies": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Three bug types, weakest first: fast swarmer, sturdy mid, slow tank",
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "pain",
+              "sprite_prompt"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 3,
+                "maxLength": 18,
+                "description": "Bug name from one of their pain points"
+              },
+              "pain": {
+                "type": "string",
+                "minLength": 3,
+                "maxLength": 44,
+                "description": "One line on the pain, shown when it first appears"
+              },
+              "sprite_prompt": {
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 200,
+                "description": "What the bug looks like: a cute insect/creature, one subject"
+              }
+            }
+          }
+        },
+        "boss": {
+          "type": "object",
+          "required": [
+            "name",
+            "taunt",
+            "sprite_prompt"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 22,
+              "description": "Their biggest generic problem, never a competitor"
+            },
+            "taunt": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 60,
+              "description": "What the boss says when it arrives"
+            },
+            "sprite_prompt": {
+              "type": "string",
+              "minLength": 10,
+              "maxLength": 200
+            }
+          }
+        },
+        "product_lines": {
+          "type": "object",
+          "description": "Optional per-product line for the level-up card, tailored to the prospect (max 44 chars)",
+          "additionalProperties": {
+            "type": "string",
+            "maxLength": 44
+          }
+        }
+      }
+    }
+  },
+  "$id": "https://games.local/kits/bug-survivors/theme.schema.json",
+  "title": "Bug Survivors theme"
+}

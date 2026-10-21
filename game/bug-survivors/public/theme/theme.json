@@ -1,0 +1,29 @@
+{
+  "prospect": { "name": "Your Company", "short": "You", "domain": "posthog.com" },
+  "title": "Bug Survivors",
+  "tagline": "A tiny game about shipping, by PostHog",
+  "palette": { "primary": "#f54e00", "secondary": "#1d1f27", "accent": "#f9bd2b" },
+  "products": ["experiments", "session_replay", "feature_flags", "error_tracking", "product_analytics", "surveys"],
+  "music": { "mood": "upbeat heroic action, driving arpeggios", "bpm": 150 },
+  "text": {
+    "win": "The monolith falls. Your users never even noticed the bugs.",
+    "lose": "The bugs got through this time. Grab a coffee and ship the fix.",
+    "credits": "Made with PostHog. Music and art generated locally."
+  },
+  "game": {
+    "difficulty": "normal",
+    "starting_product": "experiments",
+    "arena": { "name": "Production", "sprite_prompt": "dark server room floor tiles, top-down" },
+    "enemies": [
+      { "name": "Flaky Test", "pain": "Passes locally, fails in CI", "sprite_prompt": "a small buzzing fly with glassy wings" },
+      { "name": "Silent Error", "pain": "Breaks checkout and logs nothing", "sprite_prompt": "a round red beetle with a hard shell" },
+      { "name": "Scope Creep", "pain": "Just one more tiny feature...", "sprite_prompt": "a big fluffy yellow moth" }
+    ],
+    "boss": {
+      "name": "Legacy Monolith",
+      "taunt": "I have been in production since 2009!",
+      "sprite_prompt": "a giant armoured beetle made of old server racks"
+    },
+    "product_lines": {}
+  }
+}

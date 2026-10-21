@@ -1,0 +1,28 @@
+size 16x16
+base ninja-adventure/Ninja Adventure - Asset Pack/Items/Object/Hourglass.png 0,0,16,16
+concept Hot Reload: hourglass (Ninja Adventure Hourglass)
+legend
+  a #141b1b
+  b #965340
+  c #e66a3a
+  d #f38c4c
+  e #abc2bc
+  f #f1c471
+  g #f2eaf1
+frame
+.aaaaaaaaaaaaaa.
+adddddddccccccca
+adddddddccccccca
+.abbbbbbbbbbbba.
+.abgeeeeeeeegba.
+..abgeeeeeegba..
+...abgffffgba...
+....abgffgba....
+....acgffgca....
+...acgffffgca...
+..acgfggfffgca..
+.acgfggfffffgca.
+.acccccccccccca.
+adddddddccccccca
+adddddddccccccca
+.aaaaaaaaaaaaaa.

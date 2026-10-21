@@ -1,0 +1,43 @@
+size 16x16
+base ninja-adventure/Ninja Adventure - Asset Pack/Actor/Monster/SpiderYellow/SpriteSheet.png 0,4
+concept chunky spider: accent body, primary legs (Ninja Adventure SpiderYellow)
+legend
+  a #141b1b
+  b @1 fangs / leg shade
+  c @1l legs (primary)
+  d @3 body (accent)
+  e @3l body highlight
+frame
+................
+................
+..aaa......aaa..
+.abbba....abbba.
+abbbbbaaaabbbbba
+ababbbddddbbbaba
+aa.aadeededaa.aa
+....adeeadda....
+..aaaddaaddaaa..
+.acccddddddccca.
+accccaddddacccca
+accaa.aaaa.aacca
+acca........acca
+.acca......acca.
+..aa........aa..
+................
+frame
+................
+..aaa...........
+.abbba.....aaa..
+abbbbba...abbba.
+ababbbba.abbbbba
+aa.abbaaaabbbaba
+....abddddbbaaaa
+....adeededa....
+..aaadeeaddaa...
+.accaddaaddaca..
+accccddddddacca.
+accacaddddacccca
+accaa.aaaaaaccca
+.acca.......acca
+..aa.......acca.
+............aa..

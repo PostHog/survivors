@@ -1,0 +1,9 @@
+node_modules/
+.wrangler/
+.dev.vars
+# build output: the game, its headers and robots.txt, and the files generated for the Worker
+/public/
+/src/generated/
+__pycache__/
+.DS_Store
+*.log

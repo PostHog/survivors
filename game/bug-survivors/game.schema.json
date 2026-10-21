@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "required": ["difficulty", "starting_product", "arena", "enemies", "boss"],
+  "additionalProperties": false,
+  "properties": {
+    "difficulty": { "type": "string", "enum": ["easy", "normal", "hard"], "description": "easy for execs and non-gamers, normal for most, hard for gamer champions" },
+    "starting_product": { "type": "string", "enum": [], "description": "Weapon the hedgehog starts with; should be the product they need most. Must also be in products." },
+    "arena": {
+      "type": "object", "required": ["name"], "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 3, "maxLength": 24, "description": "Where the fight happens, e.g. 'Launch Pad 39A'" },
+        "sprite_prompt": { "type": "string", "maxLength": 200, "description": "Floor texture for a 32x32 tile, seen from above" }
+      }
+    },
+    "enemies": {
+      "type": "array", "minItems": 3, "maxItems": 3,
+      "description": "Three bug types, weakest first: fast swarmer, sturdy mid, slow tank",
+      "items": {
+        "type": "object", "required": ["name", "pain", "sprite_prompt"], "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "minLength": 3, "maxLength": 18, "description": "Bug name from one of their pain points" },
+          "pain": { "type": "string", "minLength": 3, "maxLength": 44, "description": "One line on the pain, shown when it first appears" },
+          "sprite_prompt": { "type": "string", "minLength": 10, "maxLength": 200, "description": "What the bug looks like: a cute insect/creature, one subject" }
+        }
+      }
+    },
+    "boss": {
+      "type": "object", "required": ["name", "taunt", "sprite_prompt"], "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 3, "maxLength": 22, "description": "Their biggest generic problem, never a competitor" },
+        "taunt": { "type": "string", "minLength": 3, "maxLength": 60, "description": "What the boss says when it arrives" },
+        "sprite_prompt": { "type": "string", "minLength": 10, "maxLength": 200 }
+      }
+    },
+    "product_lines": {
+      "type": "object",
+      "description": "Optional per-product line for the level-up card, tailored to the prospect (max 44 chars)",
+      "additionalProperties": { "type": "string", "maxLength": 44 }
+    }
+  }
+}

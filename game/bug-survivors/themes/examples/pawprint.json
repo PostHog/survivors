@@ -1,0 +1,30 @@
+{
+  "prospect": { "name": "Pawprint", "short": "Pawprint", "domain": "pawprint.app" },
+  "title": "Pawprint: Bug Walkies",
+  "tagline": "A pawsitively tiny game from PostHog",
+  "palette": { "primary": "#7b3fe4", "secondary": "#ffffff", "accent": "#ff8a3d" },
+  "products": ["error_tracking", "session_replay", "experiments", "product_analytics", "feature_flags", "surveys"],
+  "music": { "mood": "playful, bouncy, cheeky, chase scene", "bpm": 164 },
+  "text": {
+    "win": "Every walk booked, every sitter paid, every crash fetched. Good dev. Very good dev.",
+    "lose": "The bugs chewed up the booking flow. Have a treat and try again.",
+    "credits": "Made with love (and dog puns) for Pawprint by PostHog"
+  },
+  "game": {
+    "difficulty": "hard",
+    "starting_product": "error_tracking",
+    "arena": { "name": "The Dog Park", "sprite_prompt": "short green grass with a few paw prints, seen from above" },
+    "enemies": [
+      { "name": "Android Flea", "pain": "Crashes mid-booking, no stack trace", "sprite_prompt": "a tiny green flea with a cracked phone for a shell" },
+      { "name": "Cart Abandoner", "pain": "Half of bookings never finish", "sprite_prompt": "a purple beetle pushing a tiny empty shopping basket" },
+      { "name": "SQL Request Tick", "pain": "Can you just pull me one quick query?", "sprite_prompt": "a fat orange tick covered in sticky notes" }
+    ],
+    "boss": { "name": "The Crashhound", "taunt": "Who's a bad app? YOU'RE a bad app!", "sprite_prompt": "a giant purple bug shaped like a snarling bulldog with a spiked collar" },
+    "product_lines": {
+      "error_tracking": "Fetch the Android crash, with stack",
+      "session_replay": "See where bookings get abandoned",
+      "experiments": "Test a shorter booking flow",
+      "product_analytics": "Self-serve answers, fewer SQL tickets"
+    }
+  }
+}

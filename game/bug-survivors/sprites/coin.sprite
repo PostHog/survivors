@@ -1,0 +1,17 @@
+size 8x8
+base 0x72-dungeontilesetii-v1.7/0x72_DungeonTilesetII_v1.7/frames/coin_anim_f0.png 0,0,6,7
+concept gold coin (0x72 coin_anim_f0)
+legend
+  a #ee8e2e
+  b #facb3e
+  c #fdf7ed
+  k #141b1b outline
+frame
+...kk...
+..kack..
+.kabbck.
+kabbbbck
+kabbbbck
+kabbbbck
+.kabbck.
+..kack..

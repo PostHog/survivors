@@ -1,0 +1,24 @@
+size 16x16
+concept Feature Freeze: a snowflake (1-bit #616)
+legend
+  k #141b1b
+  a #a4e4fc
+  b #fcfcfc
+  c #3cbcfc
+frame
+.....k....k.....
+....kakkkkak....
+...kkkkbakkkk...
+..kbakkbckkbak..
+.kkaaakackbackk.
+kakkackkkkackkak
+.kkkkkakkakkkkk.
+.kbbakkbakkbbak.
+.kacckkackkacck.
+.kkkkkakkakkkkk.
+kakkbakkkkbakkak
+.kkbackbakaaakk.
+..kackkbckkack..
+...kkkkackkkk...
+....kakkkkak....
+.....k....k.....

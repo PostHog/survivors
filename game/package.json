@@ -1,0 +1,21 @@
+{
+  "name": "@survivors/game",
+  "private": true,
+  "type": "module",
+  "description": "The Bug Survivors game (see UPSTREAM.md). Built into ../public by build.mjs.",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs --dev",
+    "art": "node build.mjs --art",
+    "meta": "node build.mjs --meta",
+    "guide": "uv run -q --with markdown --with beautifulsoup4 --with pillow python bug-survivors/tools/build_guide.py",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "dependencies": {
+    "phaser": "3.90.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "vite": "^6.0.0"
+  }
+}

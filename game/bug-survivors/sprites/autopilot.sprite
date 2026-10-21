@@ -1,0 +1,27 @@
+size 16x16
+concept Self-Driving Mode: a steering wheel
+legend
+  k #141b1b
+  a #a4e4fc
+  b #3cbcfc
+  c #0058f8
+  d #fcfcfc
+  e #bcbcbc
+  f #7c7c7c
+frame
+......kkkk......
+....kkaaabkk....
+...kaabccbabk...
+..kabcckkbcbbk..
+.kabckk..kkbbbk.
+.kack.kkkk.kack.
+kabckkdddekkabbk
+kabbaaeeeeaabbck
+kabbcceeeeccbbck
+kbbckkeeefkkabck
+.kack.kack.kack.
+.kbbbkkackkabck.
+..kbbaabbaabck..
+...kbcbbbbcck...
+....kkbccckk....
+......kkkk......

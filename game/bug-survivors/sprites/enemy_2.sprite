@@ -1,0 +1,46 @@
+size 16x16
+base ninja-adventure/Ninja Adventure - Asset Pack/Actor/Monster/Mollusc/Mollusc.png 0,4
+concept round beetle with a primary-coloured dome shell (Ninja Adventure Mollusc)
+legend
+  a #141b1b
+  b @1l shell (primary)
+  c @5 shell band highlight
+  d #5b4a55 legs
+  e #8b7a86 leg highlight
+  f #ffffff face
+  h @5l shine
+  u @1 shell shade
+frame
+................
+......aaaa......
+....aahhccaa....
+...ahcbbbbcca...
+..abccccccccba..
+.acbbbbbbbbbbca.
+.accbbbbbbbbcca.
+abbccccccccccbba
+auuubbbbbbbbuuua
+auuubaaaaaabuuua
+.auubaffffabuua.
+..aaddaaaaddaa..
+.adddaddddaddda.
+aeedaaaeeaaadeea
+aeea..aeea..aeea
+.aa....aa....aa.
+frame
+................
+......aaaa......
+....aahhccaa....
+...ahcbbbbcca...
+..abccccccccba..
+.acbbbbbbbbbbca.
+.accbbbbbbbbcca.
+abbccccccccccbba
+auuubbbbbbbbuuua
+auuubaaaaaabuuua
+.auubaffffabuua.
+aedddaaeeaadddea
+aeedaaaeeaaadeea
+.aaa...aa...aaa.
+................
+................

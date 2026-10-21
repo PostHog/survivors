@@ -1,0 +1,15 @@
+size 8x8
+concept Max AI bolt: a magenta spark
+legend
+  k #141b1b
+  I #f878f8
+  w #fcfcfc
+frame
+........
+...kk...
+..kIIk..
+.kIwwIk.
+.kIwwIk.
+..kIIk..
+...kk...
+........

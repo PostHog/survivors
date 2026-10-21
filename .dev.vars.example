@@ -1,0 +1,5 @@
+# Local development secrets: cp .dev.vars.example .dev.vars   (.dev.vars is git-ignored; wrangler dev reads it)
+SESSION_SECRET=dev-only-secret-change-me-in-prod-0123456789
+LB_ADMIN=dev-admin
+# Signs this person in at /oauth/login on localhost, skipping PostHog (which cannot reach localhost). Ignored everywhere else.
+DEV_LOGIN_EMAIL=you@posthog.com
