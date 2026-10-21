@@ -2,7 +2,8 @@
 
     npm run build && (cd public && python3 -m http.server 8761) &
     uv run --with playwright python scripts/screenshot.py http://localhost:8761/ /tmp/frames
-    uv run --with pillow python game/bug-survivors/tools/make_icons.py /tmp/frames/frame5.png   # pick the frame you like; also writes og.png
+    cp /tmp/frames/frame5.png docs/gameplay.png    # pick the frame you like
+    uv run --with pillow --with fonttools --with brotli python game/bug-survivors/tools/make_icons.py   # adds the title; writes docs/header.png and og.png
 
 The game's debug hooks (window.__game.debug) maxes out the weapons and spawns the boss and a swarm. Achievement and
 level toasts crowd the top of the screen for a while after that, so it waits them out, then takes twelve frames in a row:
