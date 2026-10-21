@@ -125,3 +125,7 @@ code they cover. If you change any of that, check the tests still fail when they
 The game is Bug Survivors from [CEMcNEill/games](https://github.com/CEMcNEill/games), copied at
 [`551915f`](https://github.com/CEMcNEill/games/commit/551915f09ac3b5e736b673ba833527e2b4341d04). From there it's maintained here:
 [`game/UPSTREAM.md`](game/UPSTREAM.md) lists what was left behind and what changed (no co-op, a self-hosted font for the guide).
+
+## License
+
+[MIT](LICENSE).
