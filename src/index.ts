@@ -18,6 +18,15 @@ app.use('*', async (c, next) => {
   c.header('Referrer-Policy', 'no-referrer');
 });
 
+// A deploy that never had its secret set would otherwise sign cookies with `undefined`, or fail somewhere deep in a request. Say what is wrong instead.
+app.use('*', async (c, next) => {
+  if (!c.env.SESSION_SECRET && c.req.path !== '/mp/health') {
+    console.error('SESSION_SECRET is not set');
+    return c.json({ error: 'Not configured: the Worker has no SESSION_SECRET (npx wrangler secret put SESSION_SECRET)' }, 503);
+  }
+  await next();
+});
+
 app.get('/mp/health', (c) => c.text('ok'));
 app.route('/mp', leaderboard);
 app.route('/g', game);

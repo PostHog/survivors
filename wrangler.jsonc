@@ -1,5 +1,5 @@
 // Prospect games on survivors.posthog.com: one Worker, one D1 database, the game as static assets.
-// Local: `npm run build && npm run db:migrate && npm run dev`. Deploy steps are in README.md.
+// Local: `npm run build && npm run db:migrate && npm run dev`. Deploys and their one-off setup: see "Deploying" in README.md.
 {
   "name": "survivors",
   "main": "src/index.ts",

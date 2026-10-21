@@ -85,16 +85,46 @@ After editing `src/db/schema.ts`, run `npm run db:generate` and commit the migra
 
 ## Deploying
 
-1. `npx wrangler d1 create survivors`, put the `database_id` in `wrangler.jsonc`, then `npx wrangler d1 migrations apply survivors --remote`.
-2. Set the secrets: `npx wrangler secret put SESSION_SECRET` (a long random string) and `LB_ADMIN`.
-3. `npm run deploy`.
+Set it up once, then every push to `main` deploys by itself.
 
-`wrangler.jsonc` attaches the Worker to `survivors.posthog.com` as a Custom Domain. For that to work the `posthog.com` zone has to be in the
-same Cloudflare account as the Worker, and the hostname can't already have a DNS record. `workers_dev` is off on purpose: PostHog's OAuth client
-ID is the Worker's origin, so it should only ever answer on one.
+**One-off setup**
 
-After the first deploy, sign in once at `/admin`. PostHog fetches `/oauth/client.json` to find out who is asking, and that's the one part that
-can't be tested without the real domain.
+1. Create the database and commit its id. `npx wrangler d1 create survivors` prints a `database_id`; put it in `wrangler.jsonc`.
+2. In Cloudflare, create a Worker called `survivors` (it has to match `name` in `wrangler.jsonc`) and connect it to this repo. Under
+   Settings, Build, set:
+   - **Build command:** `npm run build`
+   - **Deploy command:** `npm run deploy:ci`
+   - Non-production branch builds: off. They can't reach the real database or domain, so a preview would only fail.
+
+   Cloudflare installs the dependencies itself and reads `.node-version` (22).
+3. Give the build token permission to change D1. The token Workers Builds creates can edit Workers, KV, R2 and routes, but not D1, and the
+   deploy command applies database migrations. Add **D1: Edit** to it under My Profile, API Tokens.
+4. Add two runtime secrets under Settings, Variables and Secrets (not the Build variables, which the Worker can't see):
+   - `SESSION_SECRET`: a long random string, for example the output of `openssl rand -base64 48`. The Worker signs its cookies with it:
+     the password-gate cookie that lets a visitor into a prospect's game, the admin session, and the short-lived state used while
+     signing in with PostHog. Anyone who knows it can forge those, so keep it out of the repo. Changing it signs everyone out and
+     sends visitors back to the password page. Without it the Worker answers every request with a 503 that says so.
+   - `LB_ADMIN` (optional): a password for deleting a score from a leaderboard with a script, for example a rude name on the public
+     game's board: `curl -X DELETE -H "x-admin-key: …" https://survivors.posthog.com/mp/lb/<board>/<id>`. The admin app moderates a
+     prospect's board with your PostHog session, so this is only needed for the public one. Leave it unset and that route stays closed.
+
+**What a push does**
+
+`npm run build` makes the game and the admin app, then `npm run deploy:ci` checks that the setup above was done, applies any new
+migrations to the production database (`wrangler d1 migrations apply survivors --remote`) and runs `wrangler deploy`, which also keeps
+`survivors.posthog.com` attached to the Worker. Migrations run before the new code goes live, so write them to work with the old code
+too: add columns and tables rather than renaming or dropping.
+
+`npm run deploy` does the same from your machine.
+
+**The domain**
+
+`wrangler.jsonc` attaches the Worker to `survivors.posthog.com` as a Custom Domain, so Cloudflare creates the DNS record and certificate on
+the first deploy. For that the `posthog.com` zone has to be in the same Cloudflare account as the Worker, and the hostname can't already have
+a DNS record. `workers_dev` is off on purpose: PostHog's OAuth client ID is the Worker's origin, so the Worker should only answer on one.
+
+After the first deploy, sign in once at `/admin`. PostHog fetches `/oauth/client.json` to find out who is asking, and that's the one part
+that can't be tested without the real domain.
 
 ## Good to know
 
